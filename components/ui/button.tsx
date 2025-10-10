@@ -1,3 +1,4 @@
+import React from 'react'
 import { cn } from '@/lib/utils'
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -30,7 +31,7 @@ const buttonSizes = {
  * Accessible button with loading states and proper ARIA attributes
  * SEO-friendly with semantic structure and focus management
  */
-export default function Button({
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   variant = 'primary',
   size = 'md',
   loading = false,
@@ -42,7 +43,7 @@ export default function Button({
   suppressHydrationWarning,
   type = 'button',
   ...props
-}: ButtonProps) {
+}, ref) => {
   const baseStyles = 'inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none'
   
   const variantStyles = buttonVariants[variant]
@@ -52,6 +53,7 @@ export default function Button({
 
   return (
     <button
+      ref={ref}
       type={type}
       className={cn(
         baseStyles,
@@ -107,4 +109,8 @@ export default function Button({
       )}
     </button>
   )
-}
+})
+
+Button.displayName = 'Button'
+
+export default Button
