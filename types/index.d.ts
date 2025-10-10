@@ -17,6 +17,7 @@ declare interface City {
   h1?: string;
   description?: string;
   additional_description?: string;
+  image_alt?: string;
 }
 
 declare interface CityDetail {

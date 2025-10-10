@@ -72,11 +72,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const apiUrl = 'https://api.euroqst.com/api'
     
+    // Helper function to safely parse JSON response
+    const parseJsonResponse = async (response: Response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      
+      const contentType = response.headers.get('content-type')
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error(`Expected JSON but got ${contentType}`)
+      }
+      
+      return await response.json()
+    }
+    
     // Fetch categories
     const categoriesRes = await fetch(`${apiUrl}/categories`, {
       next: { revalidate: 86400 } // Revalidate every 24 hours
     })
-    const categories = await categoriesRes.json()
+    const categories = await parseJsonResponse(categoriesRes)
     
     const categoryPages: MetadataRoute.Sitemap = categories.data?.map((category: any) => ({
       url: `${baseUrl}/training-courses/${category.slug}`,
@@ -89,7 +103,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const citiesRes = await fetch(`${apiUrl}/cities`, {
       next: { revalidate: 86400 }
     })
-    const cities = await citiesRes.json()
+    const cities = await parseJsonResponse(citiesRes)
     
     const cityPages: MetadataRoute.Sitemap = cities.data?.map((city: any) => ({
       url: `${baseUrl}/training-cities/${city.slug}`,
@@ -103,7 +117,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const coursesRes = await fetch(`${apiUrl}/courses?limit=1000`, {
         next: { revalidate: 86400 }
       })
-      const courses = await coursesRes.json()
+      const courses = await parseJsonResponse(coursesRes)
       
       const coursePages: MetadataRoute.Sitemap = courses.data?.map((course: any) => ({
         url: `${baseUrl}/training-course/${course.slug}`,

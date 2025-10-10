@@ -10,7 +10,7 @@ export default function ContactSection({
   className = "",
 }: ContactSectionProps) {
   return (
-    <section 
+    <section
       className={`pt-[10px] pb-[30px] bg-[#F2F8FF] ${className}`}
       aria-labelledby="join-heading"
       itemScope
@@ -20,14 +20,22 @@ export default function ContactSection({
         <div className="flex items-center md:justify-evenly justify-center md:flex-row flex-col-reverse gap-5">
           {/* Request Content */}
           <div className="max-w-[540px] text-center md:text-start">
-            <h2 
+            <h2
               id="join-heading"
               className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-8"
             >
-              Join one of the <strong className="text-[#3E5EC0] font-bold">world's leading professional training institutions</strong> for career development and skills enhancement
+              Join one of the best{" "}
+              <span className="text-[#3E5EC0] font-bold">
+                training institution
+              </span>{" "}
+              in the world
             </h2>
 
-            <div itemProp="potentialAction" itemScope itemType="https://schema.org/JoinAction">
+            <div
+              itemProp="potentialAction"
+              itemScope
+              itemType="https://schema.org/JoinAction"
+            >
               <JoinBtn />
             </div>
           </div>

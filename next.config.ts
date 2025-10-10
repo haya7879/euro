@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
         hostname: 'euroqst.com',
         pathname: '/assets/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'api.euroqst.com',
+        pathname: '/assets/**',
+      },
     ],
   },
   
