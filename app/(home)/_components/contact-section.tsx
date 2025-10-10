@@ -11,7 +11,7 @@ export default function ContactSection({
 }: ContactSectionProps) {
   return (
     <section
-      className={`pt-[10px] pb-[30px] bg-[#F2F8FF] ${className}`}
+      className={`py-[30px] bg-[#F2F8FF] ${className}`}
       aria-labelledby="join-heading"
       itemScope
       itemType="https://schema.org/Organization"

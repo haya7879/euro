@@ -14,9 +14,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.font-cairo{
+
+.font-cairo {
   font-family: var(--font-cairo), "Cairo", sans-serif !important;
 }
+
 /* Line clamp utility for text truncation */
 .line-clamp-2 {
   display: -webkit-box;

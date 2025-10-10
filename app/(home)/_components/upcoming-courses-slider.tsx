@@ -30,7 +30,7 @@ export default function UpcomingCoursesSlider({ upcomingCourses }: UpcomingCours
     const coursesSwiper = new Swiper('.courses-swiper', {
       modules: [Navigation, Pagination, Autoplay],
       slidesPerView: 'auto',
-      spaceBetween: 24,
+      spaceBetween: 8,
       loop: true,
       autoplay: {
         delay: 3000,

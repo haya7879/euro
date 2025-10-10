@@ -27,7 +27,7 @@ export default async function UpcomingCoursesSection() {
 
       <Container>
         {/* Section Header */}
-        <header>
+        <header className="md:mb-10 mb-8">
           <SectionTitle
             title="Upcoming"
             highlight="Courses"
