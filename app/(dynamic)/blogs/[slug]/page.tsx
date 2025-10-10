@@ -24,10 +24,10 @@ export async function generateMetadata({
     return {
       title: "Blog Not Found | EuroQuest International",
       description: "The requested blog article could not be found.",
-      // robots: {
-      //   index: false,
-      //   follow: false,
-      // },
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
@@ -41,17 +41,17 @@ export async function generateMetadata({
     authors: [{ name: "EuroQuest International" }],
     creator: "EuroQuest International",
     publisher: "EuroQuest International",
-    // robots: {
-    //   index: true,
-    //   follow: true,
-    //   googleBot: {
-    //     index: true,
-    //     follow: true,
-    //     "max-video-preview": -1,
-    //     "max-image-preview": "large",
-    //     "max-snippet": -1,
-    //   },
-    // },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     openGraph: {
       type: "article",
       locale: "en_US",

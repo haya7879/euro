@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Sitemap | EuroQuest International",
   description:
     "Complete sitemap of EuroQuest International training courses, categories, cities, and all available pages.",
-  // robots: "noindex, nofollow",
+  robots: "index, follow",
 };
 
 export default async function SitemapPage() {

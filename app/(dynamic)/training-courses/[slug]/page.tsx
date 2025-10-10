@@ -36,17 +36,17 @@ export async function generateMetadata({
       authors: [{ name: "EuroQuest International" }],
       creator: "EuroQuest International",
       publisher: "EuroQuest International",
-      // robots: {
-      //   index: true,
-      //   follow: true,
-      //   googleBot: {
-      //     index: true,
-      //     follow: true,
-      //     "max-video-preview": -1,
-      //     "max-image-preview": "large",
-      //     "max-snippet": -1,
-      //   },
-      // },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      },
       openGraph: {
         type: "website",
         locale: "en_US",
@@ -93,10 +93,10 @@ export async function generateMetadata({
       authors: [{ name: "EuroQuest International" }],
       creator: "EuroQuest International",
       publisher: "EuroQuest International",
-      // robots: {
-      //   index: true,
-      //   follow: true,
-      // },
+      robots: {
+        index: true,
+        follow: true,
+      },
       alternates: {
         canonical: `${baseUrl}/training-courses`,
       },

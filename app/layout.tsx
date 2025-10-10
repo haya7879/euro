@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: "EuroQuest International",
   description: "EuroQuest International - Professional Training and Certification Courses",
   keywords: "training, certification, courses, professional development, EuroQuest",
-  // robots: "noindex, nofollow",
+  robots: "index, follow",
   openGraph: {
     title: "EuroQuest International",
     description: "EuroQuest International - Professional Training and Certification Courses",
