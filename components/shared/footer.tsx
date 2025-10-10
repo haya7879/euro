@@ -170,21 +170,22 @@ export default function Footer() {
 
             <div className="mb-4">
               <h3 className="sr-only">Follow us on social media</h3>
-              <div className="flex gap-2" role="list" aria-label="Social media links">
+              <ul className="flex gap-2" role="list" aria-label="Social media links">
                 {socialLinks.map((social, index) => (
-                  <Link
-                    key={index}
-                    href={social.href}
-                    className="w-10 h-10 bg-white rounded-lg flex items-center justify-center transition-transform duration-300 hover:-translate-y-0.5"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Visit our social media page"
-                    itemProp="sameAs"
-                  >
-                    <social.Icon className="text-[#2A3453] text-xl" aria-hidden="true" />
-                  </Link>
+                  <li key={index} role="listitem">
+                    <Link
+                      href={social.href}
+                      className="w-10 h-10 bg-white rounded-lg flex items-center justify-center transition-transform duration-300 hover:-translate-y-0.5"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Visit our ${social.name} page`}
+                      itemProp="sameAs"
+                    >
+                      <social.Icon className="text-[#2A3453] text-xl" aria-hidden="true" />
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </div>

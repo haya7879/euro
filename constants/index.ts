@@ -42,10 +42,10 @@ export const quickAccessLinks = [
 ];
 
 export const socialLinks = [
-  { href: "#", Icon: FaFacebookF },
-  { href: "#", Icon: FaInstagram },
-  { href: "#", Icon: FaXTwitter  },
-  { href: "#", Icon: FaLinkedinIn },
+  { href: "#", Icon: FaFacebookF, name: "Facebook" },
+  { href: "#", Icon: FaInstagram, name: "Instagram" },
+  { href: "#", Icon: FaXTwitter, name: "Twitter" },
+  { href: "#", Icon: FaLinkedinIn, name: "LinkedIn" },
 ];
 
 export const orderedMonths = generateDynamicMonths();

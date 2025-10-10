@@ -181,12 +181,12 @@ export default async function SitemapPage() {
                 Professional Training Categories
               </h2>
 
-              <div className="ml-0 md:ml-28 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl" role="list">
-                <ul className="list-disc list-inside text-lg font-medium text-gray-500 space-y-2">
+              <div className="ml-0 md:ml-28 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                <ul className="list-disc list-inside text-lg font-medium text-gray-500 space-y-2" role="list">
                   {sitemapData?.categories
                     .slice(0, Math.ceil(sitemapData.categories.length / 2))
                     .map((category) => (
-                      <li key={category.id}>
+                      <li key={category.id} role="listitem">
                         <Link
                           href={`/training-courses/${category.slug}`}
                           className="hover:text-blue-600 hover:underline transition-all duration-300"
@@ -198,11 +198,11 @@ export default async function SitemapPage() {
                     ))}
                 </ul>
 
-                <ul className="list-disc list-inside text-lg font-medium text-gray-500 space-y-2">
+                <ul className="list-disc list-inside text-lg font-medium text-gray-500 space-y-2" role="list">
                   {sitemapData?.categories
                     .slice(Math.ceil(sitemapData.categories.length / 2))
                     .map((category) => (
-                      <li key={category.id}>
+                      <li key={category.id} role="listitem">
                         <Link
                           href={`/training-courses/${category.slug}`}
                           className="hover:text-blue-600 hover:underline transition-all duration-300"
@@ -228,7 +228,7 @@ export default async function SitemapPage() {
               <div className="ml-0 md:ml-28 flex flex-wrap gap-12 max-w-4xl">
                 <ul className="list-disc list-inside text-lg font-medium text-gray-500 space-y-2 columns-2 md:columns-3" role="list">
                   {sitemapData?.cities.map((city) => (
-                    <li key={city.id} className="break-inside-avoid">
+                    <li key={city.id} className="break-inside-avoid" role="listitem">
                       <Link
                         href={`/training-cities/${city.slug}`}
                         className="hover:text-blue-600 hover:underline transition-all duration-300"
@@ -266,18 +266,19 @@ export default async function SitemapPage() {
                             <h3 className="text-2xl font-bold text-gray-800">
                               {category.title} Training by City
                             </h3>
-                            <nav className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" role="list">
+                            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" role="list">
                               {combinations.map((combination, index) => (
-                                <Link
-                                  key={index}
-                                  href={`/training-courses/${combination.city.slug}/${combination.category.slug}`}
-                                  className="text-sm text-gray-600 hover:text-blue-600 hover:underline transition-all duration-300 block"
-                                  title={`${category.title} Training in ${combination.city.title}`}
-                                >
-                                  {combination.city.title}
-                                </Link>
+                                <li key={index} role="listitem">
+                                  <Link
+                                    href={`/training-courses/${combination.city.slug}/${combination.category.slug}`}
+                                    className="text-sm text-gray-600 hover:text-blue-600 hover:underline transition-all duration-300 block"
+                                    title={`${category.title} Training in ${combination.city.title}`}
+                                  >
+                                    {combination.city.title}
+                                  </Link>
+                                </li>
                               ))}
-                            </nav>
+                            </ul>
                           </article>
                         );
                       }
@@ -308,18 +309,19 @@ export default async function SitemapPage() {
                             <h3 className="text-2xl font-bold text-gray-800">
                               {course.title} - Available Cities
                             </h3>
-                            <nav className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" role="list">
+                            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" role="list">
                               {combinations.map((combination, index) => (
-                                <Link
-                                  key={index}
-                                  href={`/training-course/${combination.course.slug}/${combination.city.slug}`}
-                                  className="text-sm text-gray-600 hover:text-blue-600 hover:underline transition-all duration-300 block"
-                                  title={`${course.title} Course in ${combination.city.title}`}
-                                >
-                                  {combination.city.title}
-                                </Link>
+                                <li key={index} role="listitem">
+                                  <Link
+                                    href={`/training-course/${combination.course.slug}/${combination.city.slug}`}
+                                    className="text-sm text-gray-600 hover:text-blue-600 hover:underline transition-all duration-300 block"
+                                    title={`${course.title} Course in ${combination.city.title}`}
+                                  >
+                                    {combination.city.title}
+                                  </Link>
+                                </li>
                               ))}
-                            </nav>
+                            </ul>
                           </article>
                         );
                       }

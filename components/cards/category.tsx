@@ -9,6 +9,7 @@ export default function CategoryCard({ category }: { category: Category }) {
       href={`/training-courses/${category.slug}`}
       className="bg-white rounded-xl overflow-hidden shadow-[1px_1px_37px_0_rgba(62,94,192,0.25)] transition-all duration-300 relative border border-white/20 cursor-pointer group hover:transform hover:-translate-y-1.5"
       aria-label={`Explore ${category.title} training courses - ${category.courses_count}+ available`}
+      role="listitem"
       itemScope
       itemType="https://schema.org/Thing"
     >
