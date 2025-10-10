@@ -1,3 +1,4 @@
+"use client";
 import { useCityCategoryDetails } from "@/services/hooks";
 import CoursesList from "@/components/shared/courses-list";
 import LoadingSpinner from "@/components/ui/loading-spinner";
