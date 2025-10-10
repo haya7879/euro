@@ -1,7 +1,8 @@
+import { DOMAIN } from '@/constants/domain'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  const baseUrl = 'https://euroqst.com'
+  const baseUrl = DOMAIN
   const apiUrl = 'https://api.euroqst.com/api'
   
   try {

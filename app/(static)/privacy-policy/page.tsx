@@ -6,13 +6,14 @@ import { getSeoData } from "@/services/services";
 import Container from "@/components/shared/container";
 import Schema from "@/components/shared/schema";
 import Link from "next/link";
+import { DOMAIN } from "@/constants/domain";
 
 // Generate metadata dynamically
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const seoData = await getSeoData('privacy');
     const seo = seoData.seo;
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     return {
       title: seo.meta_title,
@@ -61,7 +62,7 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   } catch (error) {
     console.error('Error generating metadata for privacy policy page:', error);
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
     
     // Fallback metadata
     return {
@@ -83,7 +84,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function PrivacyPolicyPage() {
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
   const breadcrumbs: BreadcrumbItem[] = [
     {
       href: "/",

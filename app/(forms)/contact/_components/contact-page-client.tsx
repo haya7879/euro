@@ -153,20 +153,34 @@ export default function ContactPageClient() {
     }
   }
   return (
-    <section className="py-16 mt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-          
-          {/* Left Form */}
-          <div className="w-full lg:flex-1">
-            <h2 className="mb-5 text-[#314EA9] text-xl md:text-2xl font-semibold">Contact us</h2>
-            <div className="border border-[#969fac] p-4 md:p-8 rounded-lg">
-              
-              <form
-                id="contactPageForm"
-                className="space-y-6"
-                onSubmit={handleSubmit}
-              >
+    <main>
+      <section 
+        className="py-16 mt-8"
+        aria-labelledby="contact-heading"
+        itemScope
+        itemType="https://schema.org/ContactPage"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+            
+            {/* Left Form */}
+            <div className="w-full lg:flex-1">
+              <header>
+                <h1 
+                  id="contact-heading"
+                  className="mb-5 text-[#314EA9] text-xl md:text-2xl font-semibold"
+                >
+                  Contact Us
+                </h1>
+              </header>
+              <div className="border border-[#969fac] p-4 md:p-8 rounded-lg">
+                
+                <form
+                  id="contactPageForm"
+                  className="space-y-6"
+                  onSubmit={handleSubmit}
+                  aria-label="Contact form"
+                >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div className="form-group flex flex-col gap-1">
                     <label htmlFor="contact_full_name" className="text-[13px] text-[#333]">
@@ -338,21 +352,24 @@ export default function ContactPageClient() {
                     type="submit"
                     disabled={!isRecaptchaVerified || contactMutation.isPending}
                     className="submit-btn min-w-[170px] w-full lg:w-fit h-11 md:h-12 rounded-[10px] px-[18px] text-sm font-semibold text-white bg-gradient-to-r from-[#314EA9] to-[#446AE1] border-none cursor-pointer flex items-center justify-center gap-2 ml-0 transition-all duration-500 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    aria-label={contactMutation.isPending ? 'Sending message' : 'Send contact message'}
                   >
                     <span className="btn-text">
                       {contactMutation.isPending ? 'Sending Message...' : 'Send Message'}
                     </span>
-                    {!contactMutation.isPending && <i className="fas fa-chevron-right"></i>}
+                    {!contactMutation.isPending && <i className="fas fa-chevron-right" aria-hidden="true"></i>}
                   </button>
                   
                   {/* reCAPTCHA v2 */}
-                  <ReCaptchaV2
-                    onVerify={handleRecaptchaVerify}
-                    onError={handleRecaptchaError}
-                    onExpire={handleRecaptchaExpire}
-                    theme="light"
-                    size="normal"
-                  />
+                  <div aria-label="reCAPTCHA verification">
+                    <ReCaptchaV2
+                      onVerify={handleRecaptchaVerify}
+                      onError={handleRecaptchaError}
+                      onExpire={handleRecaptchaExpire}
+                      theme="light"
+                      size="normal"
+                    />
+                  </div>
                 </div>
 
               </form>
@@ -360,18 +377,26 @@ export default function ContactPageClient() {
           </div>
 
           {/* Right Image */}
-          <div className="w-full lg:flex-1 lg:max-w-md flex items-start justify-center lg:mt-16">
-            <Image
-              src="/assets/images/contact-img.svg"
-              alt="Contact Image"
-              width={400}
-              height={300}
-              className="w-full max-w-sm h-auto rounded-lg"
-            />
-          </div>
+          <aside 
+            className="w-full lg:flex-1 lg:max-w-md flex items-start justify-center lg:mt-16"
+            role="complementary"
+            aria-label="Contact illustration"
+          >
+            <figure>
+              <Image
+                src="/assets/images/contact-img.svg"
+                alt="Contact EuroQuest International - Professional Training Support"
+                width={400}
+                height={300}
+                className="w-full max-w-sm h-auto rounded-lg"
+                priority
+              />
+            </figure>
+          </aside>
 
         </div>
       </div>
     </section>
+    </main>
   )
 }

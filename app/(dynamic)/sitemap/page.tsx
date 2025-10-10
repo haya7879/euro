@@ -4,6 +4,7 @@ import { Home } from "lucide-react";
 import { Metadata } from "next";
 import Schema from "@/components/shared/schema";
 import Link from "next/link";
+import { DOMAIN } from "@/constants/domain";
 
 export const metadata: Metadata = {
   title: "Sitemap | EuroQuest International",
@@ -53,7 +54,7 @@ export default async function SitemapPage() {
         pageType="sitemap"
         pageTitle="Sitemap - Complete Site Navigation | EuroQuest International Training"
         pageDescription="Browse our complete sitemap featuring 1000+ professional training courses, categories, global cities, and all available pages."
-        pageUrl="https://euroqst.com/sitemap"
+        pageUrl={`${DOMAIN}/sitemap`}
       />
       
       {/* Hero Banner */}

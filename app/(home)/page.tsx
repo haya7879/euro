@@ -7,6 +7,7 @@ import CitiesSection from "./_components/cities-section";
 import UpcomingCoursesSection from "./_components/upcoming-courses-section";
 import { getCategories, getSeoData } from "@/services/services";
 import CategoriesSection from "./_components/categories-section";
+import { DOMAIN } from "@/constants/domain";
 
 
 // Generate metadata dynamically
@@ -88,7 +89,7 @@ export async function generateMetadata(): Promise<Metadata> {
         siteName: 'EuroQuest International Training',
         locale: 'en_US',
         type: 'website',
-        url: 'https://euroqst.com',
+        url: DOMAIN,
       },
       twitter: {
         card: 'summary_large_image',
@@ -108,10 +109,10 @@ export default async function HomePage() {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://euroqst.com/#organization",
+        "@id": `${DOMAIN}/#organization`,
         "name": "EuroQuest International Training",
-        "url": "https://euroqst.com",
-        "logo": "https://euroqst.com/assets/images/logo.svg",
+        "url": DOMAIN,
+        "logo": `${DOMAIN}/assets/images/logo.svg`,
         "sameAs": [
           "https://www.facebook.com/euroquest.international"
         ],
@@ -355,25 +356,25 @@ export default async function HomePage() {
       },
       {
         "@type": "WebSite",
-        "@id": "https://euroqst.com/#website",
-        "url": "https://euroqst.com",
+        "@id": `${DOMAIN}/#website`,
+        "url": DOMAIN,
         "name": "EuroQuest International Training",
         "description": "EuroQuest International Training provides innovative training courses across multiple industries and global hubs.",
         "publisher": {
-          "@id": "https://euroqst.com/#organization"
+          "@id": `${DOMAIN}/#organization`
         },
         "inLanguage": "en"
       },
       {
         "@type": "WebPage",
-        "@id": "https://euroqst.com/#webpage",
-        "url": "https://euroqst.com",
+        "@id": `${DOMAIN}/#webpage`,
+        "url": DOMAIN,
         "name": "EuroQuest International Training",
         "isPartOf": {
-          "@id": "https://euroqst.com/#website"
+          "@id": `${DOMAIN}/#website`
         },
         "mainEntity": {
-          "@id": "https://euroqst.com/#organization"
+          "@id": `${DOMAIN}/#organization`
         },
         "description": "Explore EuroQuest International Training – founded in 2015, delivering more than 1000 training courses to 15,000+ participants worldwide.",
         "breadcrumb": {
@@ -383,7 +384,7 @@ export default async function HomePage() {
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://euroqst.com"
+              "item": DOMAIN
             }
           ]
         },
@@ -392,17 +393,17 @@ export default async function HomePage() {
           "@type": "SearchAction",
           "target": {
             "@type": "EntryPoint",
-            "urlTemplate": "https://euroqst.com/search?q={search_term_string}"
+            "urlTemplate": `${DOMAIN}/search?q={search_term_string}`
           },
           "query-input": "required name=search_term_string"
         }
       },
       {
         "@type": "ProfessionalService",
-        "@id": "https://euroqst.com/#service",
+        "@id": `${DOMAIN}/#service`,
         "name": "Professional Training Services",
         "provider": {
-          "@id": "https://euroqst.com/#organization"
+          "@id": `${DOMAIN}/#organization`
         },
         "serviceType": "Professional Training and Development",
         "areaServed": [

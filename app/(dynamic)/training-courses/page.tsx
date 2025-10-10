@@ -6,6 +6,7 @@ import CategoriesSection from "./_components/categories-section";
 import { getCategories, getSeoData } from "@/services/services";
 import Container from "@/components/shared/container";
 import Schema from "@/components/shared/schema";
+import { DOMAIN } from "@/constants/domain";
 
 
 // Generate metadata dynamically for SEO optimization
@@ -13,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   try {
     const seoData = await getSeoData("categories");
     const seo = seoData.seo;
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     return {
       title: seo.meta_title,
@@ -67,7 +68,7 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   } catch (error) {
     console.error("Error generating metadata for categories page:", error);
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     // SEO-optimized fallback metadata
     return {
@@ -100,7 +101,7 @@ interface CategoriesPageProps {
 export default async function CategoriesPage({ searchParams }: CategoriesPageProps) {
   const params = await searchParams;
   const categories = await getCategories();
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
   
   // Breadcrumb configuration
   const breadcrumbs: BreadcrumbItem[] = [

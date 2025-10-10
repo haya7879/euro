@@ -8,6 +8,7 @@ import { Home } from "lucide-react";
 import CourseTimings from "../../_components/course-timings";
 import CourseContent from "../../_components/course-content";
 import Schema from "@/components/shared/schema";
+import { DOMAIN } from "@/constants/domain";
 
 // Generate metadata dynamically with enhanced SEO
 export async function generateMetadata({
@@ -19,7 +20,7 @@ export async function generateMetadata({
     const { courseSlug, citySlug } = await params;
     const courseData = await getCityCourseDetails(courseSlug, citySlug);
     const { course, city, seo } = courseData;
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     return {
       title:
@@ -89,7 +90,7 @@ export async function generateMetadata({
     };
   } catch (error) {
     console.error("Error generating metadata for city course page:", error);
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     // SEO-optimized fallback metadata
     return {
@@ -120,7 +121,7 @@ export default async function Page({ params }: PageProps) {
   const { courseSlug, citySlug } = await params;
   const courseData = await getCityCourseDetails(courseSlug, citySlug);
   const { course, city, seo, timings } = courseData;
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   const breadcrumbs: BreadcrumbItem[] = [
     { href: "/", label: "", icon: <Home size={14} /> },

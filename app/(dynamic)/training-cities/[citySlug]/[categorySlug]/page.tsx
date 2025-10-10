@@ -7,6 +7,7 @@ import { Home } from "lucide-react";
 import Container from "@/components/shared/container";
 import AdditionalDescription from "@/components/shared/additional-description";
 import CityCategorySection from "../../_components/city-category-section";
+import { DOMAIN } from "@/constants/domain";
 
 // Generate metadata dynamically with enhanced SEO
 export async function generateMetadata({
@@ -18,7 +19,7 @@ export async function generateMetadata({
     const { citySlug, categorySlug } = await params;
     const categoryData = await getCityCategoryDetails(citySlug, categorySlug);
     const { city, category, seo } = categoryData;
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     return {
       title: seo.meta_title || `${category.title} Training Courses in ${city.title} | EuroQuest International`,
@@ -72,7 +73,7 @@ export async function generateMetadata({
     };
   } catch (error) {
     console.error("Error generating metadata for city category page:", error);
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
     
     // SEO-optimized fallback metadata
     return {
@@ -108,7 +109,7 @@ export default async function Page({
   const searchParamsData = await searchParams;
   const categoryData = await getCityCategoryDetails(citySlug, categorySlug);
   const { city, category, courses, seo } = categoryData;
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   // Breadcrumb configuration
   const breadcrumbs: BreadcrumbItem[] = [

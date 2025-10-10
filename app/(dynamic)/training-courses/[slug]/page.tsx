@@ -7,6 +7,7 @@ import { Home } from "lucide-react";
 import Container from "@/components/shared/container";
 import AdditionalDescription from "@/components/shared/additional-description";
 import CategorySection from "../_components/category-section";
+import { DOMAIN } from "@/constants/domain";
 
 // Generate metadata dynamically for category pages with enhanced SEO
 export async function generateMetadata({
@@ -18,7 +19,7 @@ export async function generateMetadata({
     const { slug } = await params;
     const categoryData = await getCategoryDetails(slug);
     const { category } = categoryData;
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     // Generate dynamic metadata based on category data
     const title = `${category.title} Training Courses | EuroQuest International`;
@@ -81,7 +82,7 @@ export async function generateMetadata({
     };
   } catch (error) {
     console.error("Error generating metadata for category page:", error);
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     // SEO-optimized fallback metadata
     return {
@@ -119,7 +120,7 @@ export default async function Page({
   const searchParamsData = await searchParams;
   const categoryData = await getCategoryDetails(slug);
   const { category, courses } = categoryData;
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   // Breadcrumb configuration
   const breadcrumbs: BreadcrumbItem[] = [

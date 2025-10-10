@@ -1,7 +1,8 @@
+import { DOMAIN } from '@/constants/domain'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  const baseUrl = 'https://euroqst.com'
+  const baseUrl = DOMAIN
   const currentDate = new Date().toISOString()
 
   const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>

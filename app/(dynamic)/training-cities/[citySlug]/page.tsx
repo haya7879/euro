@@ -8,6 +8,7 @@ import Container from "@/components/shared/container";
 import AdditionalDescription from "@/components/shared/additional-description";
 import CitySection from "../_components/city-section";
 import CategoriesSection from "../../../(home)/_components/categories-section";
+import { DOMAIN } from "@/constants/domain";
 
 // Generate metadata dynamically with enhanced SEO
 export async function generateMetadata({
@@ -19,7 +20,7 @@ export async function generateMetadata({
     const { citySlug } = await params;
     const cityData = await getCityDetails(citySlug);
     const { city } = cityData;
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     return {
       title: city.meta_title || `${city.title} Training Courses | EuroQuest International`,
@@ -73,7 +74,7 @@ export async function generateMetadata({
     };
   } catch (error) {
     console.error("Error generating metadata for city page:", error);
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
     
     // SEO-optimized fallback metadata
     return {
@@ -109,7 +110,7 @@ export default async function Page({
   const searchParamsData = await searchParams;
   const cityData = await getCityDetails(citySlug);
   const { city, courses, categories } = cityData;
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   // Breadcrumb configuration
   const breadcrumbs: BreadcrumbItem[] = [

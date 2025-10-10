@@ -6,13 +6,14 @@ import CitiesSection from "./_components/cities-section";
 import { getCities, getSeoData } from "@/services/services";
 import Container from "@/components/shared/container";
 import Schema from "@/components/shared/schema";
+import { DOMAIN } from "@/constants/domain";
 
 // Generate metadata dynamically for SEO optimization
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const seoData = await getSeoData("cities");
     const seo = seoData.seo;
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     return {
       title: seo.meta_title,
@@ -66,7 +67,7 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   } catch (error) {
     console.error("Error generating metadata for cities page:", error);
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     // SEO-optimized fallback metadata
     return {
@@ -99,7 +100,7 @@ interface CitiesPageProps {
 export default async function CitiesPage({ searchParams }: CitiesPageProps) {
   const params = await searchParams;
   const cities = await getCities();
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   // Breadcrumb configuration
   const breadcrumbs: BreadcrumbItem[] = [

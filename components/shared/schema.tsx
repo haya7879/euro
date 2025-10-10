@@ -1,3 +1,4 @@
+import { DOMAIN } from "@/constants/domain";
 import Script from "next/script";
 
 interface SchemaProps {
@@ -11,7 +12,7 @@ export default function Schema({
   pageType = "about", 
   pageTitle = "EuroQuest International Training",
   pageDescription = "EuroQuest International Training provides innovative training courses across multiple industries and global hubs.",
-  pageUrl = "https://euroqst.com"
+  pageUrl = DOMAIN
 }: SchemaProps) {
   
   const baseSchema ={
@@ -19,11 +20,11 @@ export default function Schema({
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://euroqst.com/#organization",
+        "@id": `${DOMAIN}/#organization`,
         "name": "EuroQuest International Training",
         "alternateName": "EuroQuest International",
-        "url": "https://euroqst.com",
-        "logo": "https://euroqst.com/assets/images/logo.svg",
+        "url": DOMAIN,
+        "logo": `${DOMAIN}/assets/images/logo.svg`,
         "contactPoint": [
           {
             "@type": "ContactPoint",
@@ -43,11 +44,11 @@ export default function Schema({
       },
       {
         "@type": "WebSite",
-        "@id": "https://euroqst.com/#website",
-        "url": "https://euroqst.com",
+        "@id": `${DOMAIN}/#website`,
+        "url": DOMAIN,
         "name": "EuroQuest International Training",
         "publisher": {
-          "@id": "https://euroqst.com/#organization"
+          "@id": `${DOMAIN}/#organization`
         }
       }
     ]

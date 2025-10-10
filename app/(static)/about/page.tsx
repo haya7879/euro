@@ -8,6 +8,7 @@ import { getSeoData } from "@/services/services";
 import Container from "@/components/shared/container";
 import Schema from "@/components/shared/schema";
 import Image from "next/image";
+import { DOMAIN } from "@/constants/domain";
 
 const breadcrumbs = [
   { label: '', href: '/', icon: <Home width={16} height={16}/> },
@@ -20,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   try {
     const seoData = await getSeoData('about');
     const seo = seoData.seo;
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     return {
       title: seo.meta_title,
@@ -70,7 +71,7 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   } catch (error) {
     console.error('Error generating metadata for about page:', error);
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
     
     // Fallback metadata
     return {
@@ -92,7 +93,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function AboutPage() {
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   // Organization Schema
   const organizationSchema = {

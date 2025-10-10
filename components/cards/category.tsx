@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { DOMAIN } from "@/constants/domain";
 
 export default function CategoryCard({ category }: { category: Category }) {
   return (
@@ -12,7 +13,7 @@ export default function CategoryCard({ category }: { category: Category }) {
       itemType="https://schema.org/Thing"
     >
       <meta itemProp="name" content={category.title} />
-      <meta itemProp="url" content={`https://euroqst.com/training-courses/${category.slug}`} />
+      <meta itemProp="url" content={`${DOMAIN}/training-courses/${category.slug}`} />
       
       {/* Top border gradient - appears on hover */}
       <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#314EA9] to-[#446AE1] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" aria-hidden="true"></div>

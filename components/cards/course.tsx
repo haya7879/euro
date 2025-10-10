@@ -1,6 +1,7 @@
 import { Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import CourseCode from "../shared/course-code";
+import { DOMAIN } from "@/constants/domain";
 
 interface CourseCardProps {
   course: Course;
@@ -20,7 +21,7 @@ export default function CourseCard({ course, citySlug }: CourseCardProps) {
     >
       <meta itemProp="name" content={course.title} />
       <meta itemProp="courseCode" content={course.code} />
-      <meta itemProp="url" content={`https://euroqst.com${href}`} />
+      <meta itemProp="url" content={`${DOMAIN}${href}`} />
       
       {/* Course Left */}
       <div className="flex items-center justify-between gap-4 md:w-1/2 w-full">

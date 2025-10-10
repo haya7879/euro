@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { DOMAIN } from "@/constants/domain";
 
 interface CityHomeCardProps {
   city: City;
@@ -21,7 +22,7 @@ export default function CityHomeCard({ city }: CityHomeCardProps) {
         itemType="https://schema.org/Place"
       >
         <meta itemProp="name" content={city.title} />
-        <meta itemProp="url" content={`https://euroqst.com/training-cities/${city.slug}`} />
+        <meta itemProp="url" content={`${DOMAIN}/training-cities/${city.slug}`} />
         
         <div>
           {/* City Image */}

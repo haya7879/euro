@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import Container from "@/components/shared/container";
 import Schema from "@/components/shared/schema";
 import Image from "next/image";
+import { DOMAIN } from "@/constants/domain";
 
 interface BlogDetailPageProps {
   params: Promise<{
@@ -19,7 +20,7 @@ export async function generateMetadata({
 }: BlogDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const blog = await getBlogBySlug(slug);
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   if (!blog) {
     return {
@@ -98,7 +99,7 @@ export async function generateMetadata({
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { slug } = await params;
   const blog = await getBlogBySlug(slug);
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   if (!blog) {
     notFound();

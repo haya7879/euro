@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Schema from "@/components/shared/schema";
 import SearchSection from "./_components/search-section";
+import { DOMAIN } from "@/constants/domain";
 
 // Generate dynamic metadata for search page with enhanced SEO
 export async function generateMetadata({
@@ -15,7 +16,7 @@ export async function generateMetadata({
   }>;
 }): Promise<Metadata> {
   const params = await searchParams;
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   // Build dynamic title and description based on search params
   let title = "Search Training Courses | EuroQuest International";
@@ -114,7 +115,7 @@ interface SearchPageProps {
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   const params = await searchParams;
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   // Build search query for structured data
   const searchTerms: string[] = [];

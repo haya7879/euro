@@ -1,7 +1,8 @@
+import { DOMAIN } from '@/constants/domain'
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://euroqst.com'
+  const baseUrl = DOMAIN
   
   return {
     rules: [

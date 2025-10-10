@@ -1,6 +1,7 @@
 import { Eye } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { DOMAIN } from "@/constants/domain";
 
 interface BlogCardProps {
   blog: Blog;
@@ -36,7 +37,7 @@ export default function BlogCard({ blog, className = "" }: BlogCardProps) {
         href={`/blogs/${blog.slug}`}
         aria-label={`Read blog article: ${blog.title}`}
       >
-        <meta itemProp="url" content={`https://euroqst.com/blogs/${blog.slug}`} />
+        <meta itemProp="url" content={`${DOMAIN}/blogs/${blog.slug}`} />
         
         <figure className="relative">
           <Image

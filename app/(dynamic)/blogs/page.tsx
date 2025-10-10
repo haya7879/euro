@@ -5,13 +5,14 @@ import { Home } from "lucide-react";
 import { getBlogs, getSeoData } from "@/services/services";
 import Container from "@/components/shared/container";
 import Schema from "@/components/shared/schema";
+import { DOMAIN } from "@/constants/domain";
 
 // Generate metadata dynamically for SEO optimization
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const seoData = await getSeoData("blogs");
     const seo = seoData.seo;
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     return {
       title: seo.meta_title,
@@ -65,7 +66,7 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   } catch (error) {
     console.error("Error generating metadata for blogs page:", error);
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     // SEO-optimized fallback metadata
     return {
@@ -99,7 +100,7 @@ interface BlogsPageProps {
 export default async function BlogsPage({ searchParams }: BlogsPageProps) {
   const params = await searchParams;
   const blogsData = await getBlogs();
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   const breadcrumbs = [
     {

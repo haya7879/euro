@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { DOMAIN } from "@/constants/domain";
 
 interface CategoryHomeProps {
   category: Category;
@@ -19,7 +20,7 @@ export default function CategoryHome({ category, citySlug }: CategoryHomeProps) 
       itemType="https://schema.org/Thing"
     >
       <meta itemProp="name" content={category.title} />
-      <meta itemProp="url" content={`https://euroqst.com${href}`} />
+      <meta itemProp="url" content={`${DOMAIN}${href}`} />
       
       {/* Shimmer effect */}
       <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-blue-600/10 to-transparent transition-all duration-600 ease-out group-hover:left-full z-[1]" aria-hidden="true"></div>

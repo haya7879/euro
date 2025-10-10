@@ -5,9 +5,7 @@ import { cn } from "@/lib/utils";
 import { useJoinForm } from "@/services/forms/forms-hooks";
 import { toast } from "sonner";
 import ReCaptchaV2 from "@/components/ui/recaptcha-v2";
-import {
-  validateRecaptchaConfig,
-} from "@/constants/recaptcha";
+import { validateRecaptchaConfig } from "@/constants/recaptcha";
 
 export default function JoinPageClient() {
   const [formData, setFormData] = useState({
@@ -199,240 +197,266 @@ export default function JoinPageClient() {
   };
 
   return (
-    <section className="py-16 mt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Form Section */}
-        <div className="w-full">
-          <h2 className="mb-5 text-[#314EA9] text-xl md:text-2xl font-semibold">
-            Join Us
-          </h2>
-          <div className="border border-[#969fac] p-4 md:p-8 rounded-lg">
-            <form
-              id="joinUsForm"
-              className="space-y-6"
-              onSubmit={handleSubmit}
-              encType="multipart/form-data"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <div className="form-group flex flex-col gap-1">
-                  <label
-                    htmlFor="join_full_name"
-                    className="text-[13px] text-[#333]"
-                  >
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="join_full_name"
-                    name="full_name"
-                    placeholder="Full Name"
-                    value={formData.full_name}
-                    onChange={handleInputChange}
-                    required
-                    suppressHydrationWarning={true}
-                    className={cn(
-                      "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
-                      errors.full_name && "border-red-500"
-                    )}
-                  />
-                  {errors.full_name && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.full_name}
-                    </span>
-                  )}
-                </div>
-
-                <div className="form-group flex flex-col gap-1">
-                  <label
-                    htmlFor="join_email"
-                    className="text-[13px] text-[#333]"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="join_email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    suppressHydrationWarning={true}
-                    className={cn(
-                      "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
-                      errors.email && "border-red-500"
-                    )}
-                  />
-                  {errors.email && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.email}
-                    </span>
-                  )}
-                </div>
-
-                <div className="form-group flex flex-col gap-1">
-                  <label
-                    htmlFor="speciality"
-                    className="text-[13px] text-[#333]"
-                  >
-                    Speciality
-                  </label>
-                  <input
-                    type="text"
-                    id="speciality"
-                    name="speciality"
-                    placeholder="Speciality"
-                    value={formData.speciality}
-                    onChange={handleInputChange}
-                    required
-                    suppressHydrationWarning={true}
-                    className={cn(
-                      "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
-                      errors.speciality && "border-red-500"
-                    )}
-                  />
-                  {errors.speciality && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.speciality}
-                    </span>
-                  )}
-                </div>
-
-                <div className="form-group flex flex-col gap-1">
-                  <label htmlFor="country" className="text-[13px] text-[#333]">
-                    Country
-                  </label>
-                  <input
-                    type="text"
-                    id="country"
-                    name="country"
-                    placeholder="Country"
-                    value={formData.country}
-                    onChange={handleInputChange}
-                    required
-                    suppressHydrationWarning={true}
-                    className={cn(
-                      "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
-                      errors.country && "border-red-500"
-                    )}
-                  />
-                  {errors.country && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.country}
-                    </span>
-                  )}
-                </div>
-
-                <div className="form-group flex flex-col gap-1">
-                  <PhoneInput
-                    id="phone"
-                    name="phone_number"
-                    label="Phone Number"
-                    value={`${formData.phone_country_code}${formData.phone_number}`}
-                    onChange={handlePhoneChange}
-                    placeholder="Enter phone number"
-                    required
-                    defaultCountry="AE"
-                    error={!!errors.phone_number}
-                    helperText={errors.phone_number}
-                  />
-                </div>
-
-                <div className="form-group file-input-wrapper flex flex-col gap-1">
-                  <label htmlFor="cv" className="text-[13px] text-[#333]">
-                    Upload CV
-                  </label>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    id="cv"
-                    name="cv"
-                    accept=".pdf,.doc,.docx"
-                    onChange={handleFileChange}
-                    className="hidden"
-                    required
-                  />
-                  <button
-                    type="button"
-                    onClick={handleFileButtonClick}
-                    suppressHydrationWarning={true}
-                    className={cn(
-                      "file-input-btn h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3 bg-white cursor-pointer flex items-center gap-2 text-left",
-                      errors.cv && "border-red-500"
-                    )}
-                  >
-                    <i className="fas fa-upload text-[#6B7280]"></i>
-                    <span
-                      id="file-name-display"
-                      className="text-sm text-[#374151]"
+    <main>
+      <section
+        className="py-16 mt-8"
+        aria-labelledby="join-heading"
+        itemScope
+        itemType="https://schema.org/WebPage"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Form Section */}
+          <div className="w-full">
+            <header>
+              <h1
+                id="join-heading"
+                className="mb-5 text-[#314EA9] text-xl md:text-2xl font-semibold"
+              >
+                Join Our Team
+              </h1>
+            </header>
+            <div className="border border-[#969fac] p-4 md:p-8 rounded-lg">
+              <form
+                id="joinUsForm"
+                className="space-y-6"
+                onSubmit={handleSubmit}
+                encType="multipart/form-data"
+                aria-label="Job application form"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  <div className="form-group flex flex-col gap-1">
+                    <label
+                      htmlFor="join_full_name"
+                      className="text-[13px] text-[#333]"
                     >
-                      {fileName}
-                    </span>
-                  </button>
-                  {errors.cv && (
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      id="join_full_name"
+                      name="full_name"
+                      placeholder="Full Name"
+                      value={formData.full_name}
+                      onChange={handleInputChange}
+                      required
+                      suppressHydrationWarning={true}
+                      className={cn(
+                        "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
+                        errors.full_name && "border-red-500"
+                      )}
+                    />
+                    {errors.full_name && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.full_name}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="form-group flex flex-col gap-1">
+                    <label
+                      htmlFor="join_email"
+                      className="text-[13px] text-[#333]"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="join_email"
+                      name="email"
+                      placeholder="Email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      suppressHydrationWarning={true}
+                      className={cn(
+                        "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
+                        errors.email && "border-red-500"
+                      )}
+                    />
+                    {errors.email && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.email}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="form-group flex flex-col gap-1">
+                    <label
+                      htmlFor="speciality"
+                      className="text-[13px] text-[#333]"
+                    >
+                      Speciality
+                    </label>
+                    <input
+                      type="text"
+                      id="speciality"
+                      name="speciality"
+                      placeholder="Speciality"
+                      value={formData.speciality}
+                      onChange={handleInputChange}
+                      required
+                      suppressHydrationWarning={true}
+                      className={cn(
+                        "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
+                        errors.speciality && "border-red-500"
+                      )}
+                    />
+                    {errors.speciality && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.speciality}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="form-group flex flex-col gap-1">
+                    <label
+                      htmlFor="country"
+                      className="text-[13px] text-[#333]"
+                    >
+                      Country
+                    </label>
+                    <input
+                      type="text"
+                      id="country"
+                      name="country"
+                      placeholder="Country"
+                      value={formData.country}
+                      onChange={handleInputChange}
+                      required
+                      suppressHydrationWarning={true}
+                      className={cn(
+                        "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
+                        errors.country && "border-red-500"
+                      )}
+                    />
+                    {errors.country && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.country}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="form-group flex flex-col gap-1">
+                    <PhoneInput
+                      id="phone"
+                      name="phone_number"
+                      label="Phone Number"
+                      value={`${formData.phone_country_code}${formData.phone_number}`}
+                      onChange={handlePhoneChange}
+                      placeholder="Enter phone number"
+                      required
+                      defaultCountry="AE"
+                      error={!!errors.phone_number}
+                      helperText={errors.phone_number}
+                    />
+                  </div>
+
+                  <div className="form-group file-input-wrapper flex flex-col gap-1">
+                    <label htmlFor="cv" className="text-[13px] text-[#333]">
+                      Upload CV
+                    </label>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      id="cv"
+                      name="cv"
+                      accept=".pdf,.doc,.docx"
+                      onChange={handleFileChange}
+                      className="hidden"
+                      required
+                    />
+                    <button
+                      type="button"
+                      onClick={handleFileButtonClick}
+                      suppressHydrationWarning={true}
+                      className={cn(
+                        "file-input-btn h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3 bg-white cursor-pointer flex items-center gap-2 text-left",
+                        errors.cv && "border-red-500"
+                      )}
+                    >
+                      <i className="fas fa-upload text-[#6B7280]"></i>
+                      <span
+                        id="file-name-display"
+                        className="text-sm text-[#374151]"
+                      >
+                        {fileName}
+                      </span>
+                    </button>
+                    {errors.cv && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.cv}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="message-group flex flex-col gap-1">
+                  <label
+                    htmlFor="join_message"
+                    className="text-[13px] text-[#333]"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="join_message"
+                    name="message"
+                    placeholder="Your message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    suppressHydrationWarning={true}
+                    className={cn(
+                      "w-full min-h-[120px] px-4 py-3 border border-[#e2e8f0] rounded-xl outline-none resize-none text-sm transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 placeholder:text-[#6F6F6F] max-md:min-h-[100px] max-md:px-3 max-md:py-2",
+                      errors.message && "border-red-500"
+                    )}
+                  />
+                  {errors.message && (
                     <span className="text-red-500 text-xs mt-1">
-                      {errors.cv}
+                      {errors.message}
                     </span>
                   )}
                 </div>
-              </div>
 
-              <div className="message-group flex flex-col gap-1">
-                <label
-                  htmlFor="join_message"
-                  className="text-[13px] text-[#333]"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="join_message"
-                  name="message"
-                  placeholder="Your message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  suppressHydrationWarning={true}
-                  className={cn(
-                    "w-full min-h-[120px] px-4 py-3 border border-[#e2e8f0] rounded-xl outline-none resize-none text-sm transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 placeholder:text-[#6F6F6F] max-md:min-h-[100px] max-md:px-3 max-md:py-2",
-                    errors.message && "border-red-500"
-                  )}
-                />
-                {errors.message && (
-                  <span className="text-red-500 text-xs mt-1">
-                    {errors.message}
-                  </span>
-                )}
-              </div>
+                <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-8">
+                  <button
+                    type="submit"
+                    disabled={!isRecaptchaVerified || joinMutation.isPending}
+                    className="min-w-[170px] w-full lg:w-fit h-11 md:h-12 rounded-[10px] px-[18px] text-sm font-semibold text-white bg-gradient-to-r from-[#314EA9] to-[#446AE1] border-none cursor-pointer flex items-center justify-center gap-2 ml-0 transition-all duration-500 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    aria-label={
+                      joinMutation.isPending
+                        ? "Submitting application"
+                        : "Submit job application"
+                    }
+                  >
+                    <span className="btn-text">
+                      {joinMutation.isPending
+                        ? "Submitting..."
+                        : "Submit Application"}
+                    </span>
+                    {!joinMutation.isPending && (
+                      <i
+                        className="fas fa-chevron-right"
+                        aria-hidden="true"
+                      ></i>
+                    )}
+                  </button>
 
-              <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-8">
-                <button
-                  type="submit"
-                  disabled={!isRecaptchaVerified || joinMutation.isPending}
-                  className="min-w-[170px] w-full lg:w-fit h-11 md:h-12 rounded-[10px] px-[18px] text-sm font-semibold text-white bg-gradient-to-r from-[#314EA9] to-[#446AE1] border-none cursor-pointer flex items-center justify-center gap-2 ml-0 transition-all duration-500 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <span className="btn-text">
-                    {joinMutation.isPending
-                      ? "Submitting..."
-                      : "Submit Application"}
-                  </span>
-                  {!joinMutation.isPending && (
-                    <i className="fas fa-chevron-right"></i>
-                  )}
-                </button>
-
-                {/* reCAPTCHA v2 */}
-                <ReCaptchaV2
-                  onVerify={handleRecaptchaVerify}
-                  onError={handleRecaptchaError}
-                  onExpire={handleRecaptchaExpire}
-                  theme="light"
-                  size="normal"
-                />
-              </div>
-            </form>
+                  {/* reCAPTCHA v2 */}
+                  <div aria-label="reCAPTCHA verification">
+                    <ReCaptchaV2
+                      onVerify={handleRecaptchaVerify}
+                      onError={handleRecaptchaError}
+                      onExpire={handleRecaptchaExpire}
+                      theme="light"
+                      size="normal"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

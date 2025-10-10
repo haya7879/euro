@@ -6,7 +6,7 @@ import QueryProvider from "@/providers/query-provider";
 import { Toaster } from "sonner";
 import Footer from "@/components/shared/footer";
 import PopupProvider from "@/components/popups/popup-provider";
-
+import { DOMAIN } from "@/constants/domain";
 
 const exo = Exo({
   variable: "--font-exo",
@@ -20,14 +20,17 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://euroqst.com"),
+  metadataBase: new URL(DOMAIN),
   title: {
-    default: "EuroQuest International Training | Professional Courses Worldwide",
-    template: "%s | EuroQuest International Training"
+    default:
+      "EuroQuest International Training | Professional Courses Worldwide",
+    template: "%s | EuroQuest International Training",
   },
-  description: "EuroQuest International Training - Leading provider of professional training courses across management, HR, IT, finance, and quality. Serving 15,000+ professionals since 2015.",
-  keywords: "professional training, certification courses, management training, HR courses, IT training, finance courses, quality management, leadership development, business training, corporate training",
-  authors: [{ name: "EuroQuest International Training", url: "https://euroqst.com" }],
+  description:
+    "EuroQuest International Training - Leading provider of professional training courses across management, HR, IT, finance, and quality. Serving 15,000+ professionals since 2015.",
+  keywords:
+    "professional training, certification courses, management training, HR courses, IT training, finance courses, quality management, leadership development, business training, corporate training",
+  authors: [{ name: "EuroQuest International Training", url: DOMAIN }],
   creator: "EuroQuest International Training",
   publisher: "EuroQuest International Training",
   formatDetection: {
@@ -41,18 +44,19 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   openGraph: {
     title: "EuroQuest International Training | Professional Courses Worldwide",
-    description: "Leading provider of professional training courses across management, HR, IT, finance, and quality. Serving 15,000+ professionals since 2015.",
+    description:
+      "Leading provider of professional training courses across management, HR, IT, finance, and quality. Serving 15,000+ professionals since 2015.",
     siteName: "EuroQuest International Training",
     locale: "en_US",
     type: "website",
-    url: "https://euroqst.com",
+    url: DOMAIN,
     images: [
       {
         url: "/assets/images/logo.webp",
@@ -66,7 +70,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "EuroQuest International Training | Professional Courses Worldwide",
-    description: "Leading provider of professional training courses across management, HR, IT, finance, and quality.",
+    description:
+      "Leading provider of professional training courses across management, HR, IT, finance, and quality.",
     images: ["/assets/images/logo.webp"],
     site: "@euroquest",
     creator: "@euroquest",
@@ -97,24 +102,31 @@ export default function RootLayout({
     <html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="format-detection" content="telephone=yes, email=yes, address=yes" />
+        <meta
+          name="format-detection"
+          content="telephone=yes, email=yes, address=yes"
+        />
       </head>
       <body
         className={`${exo.variable} ${cairo.variable} antialiased font-exo`}
       >
         <QueryProvider>
-            <Navbar/>
-            <main id="main-content" role="main">
-              {children}
-            </main>
-            <Footer/>
-            <PopupProvider />
-            <Toaster position="top-right" richColors />
+          <Navbar />
+          <main id="main-content" role="main">
+            {children}
+          </main>
+          <Footer />
+          <PopupProvider />
+          <Toaster position="top-right" richColors />
         </QueryProvider>
       </body>
     </html>

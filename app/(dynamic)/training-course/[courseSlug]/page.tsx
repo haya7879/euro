@@ -7,6 +7,7 @@ import Container from "@/components/shared/container";
 import CourseContent from "../_components/course-content";
 import CourseTimings from "../_components/course-timings";
 import Schema from "@/components/shared/schema";
+import { DOMAIN } from "@/constants/domain";
 
 
 // Generate metadata dynamically with enhanced SEO
@@ -19,7 +20,7 @@ export async function generateMetadata({
     const { courseSlug } = await params;
     const courseData = await getCourseDetails(courseSlug);
     const { course } = courseData;
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     return {
       title:
@@ -84,7 +85,7 @@ export async function generateMetadata({
     };
   } catch (error) {
     console.error("Error generating metadata for course page:", error);
-    const baseUrl = "https://euroqst.com";
+    const baseUrl = DOMAIN;
 
     // SEO-optimized fallback metadata
     return {
@@ -117,7 +118,7 @@ export default async function Page({
   const { courseSlug } = await params;
   const courseData = await getCourseDetails(courseSlug);
   const { course, timings } = courseData;
-  const baseUrl = "https://euroqst.com";
+  const baseUrl = DOMAIN;
 
   // Breadcrumb configuration
   const breadcrumbs: BreadcrumbItem[] = [
