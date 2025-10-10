@@ -15,6 +15,11 @@ const textareaVariants = {
   outline: 'border border-gray-300 bg-transparent focus:border-blue-500'
 }
 
+/**
+ * Textarea Component
+ * Accessible multiline text input with proper ARIA attributes
+ * SEO-friendly with semantic HTML structure
+ */
 export default function Textarea({
   variant = 'default',
   error = false,
@@ -22,8 +27,15 @@ export default function Textarea({
   label,
   fullWidth = true,
   className,
+  id,
+  required,
   ...props
 }: TextareaProps) {
+  // Generate unique ID if not provided
+  const textareaId = id || `textarea-${React.useId()}`
+  const helperTextId = helperText ? `${textareaId}-helper` : undefined
+  const errorId = error && helperText ? `${textareaId}-error` : undefined
+  
   const baseStyles = 'rounded-lg font-medium text-gray-700 transition-all duration-300 focus:outline-none focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed min-h-[120px] p-4 resize-vertical'
   
   const variantStyles = textareaVariants[variant]
@@ -33,12 +45,19 @@ export default function Textarea({
   return (
     <div className={fullWidth ? 'w-full' : 'inline-block'}>
       {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label 
+          htmlFor={textareaId}
+          className="block text-sm font-medium text-gray-700 mb-2"
+        >
           {label}
+          {required && (
+            <span className="text-red-500 ml-1" aria-label="required">*</span>
+          )}
         </label>
       )}
       
       <textarea
+        id={textareaId}
         className={cn(
           baseStyles,
           variantStyles,
@@ -46,14 +65,23 @@ export default function Textarea({
           widthStyles,
           className
         )}
+        aria-invalid={error ? 'true' : 'false'}
+        aria-describedby={error ? errorId : helperTextId}
+        aria-required={required ? 'true' : undefined}
+        required={required}
         {...props}
       />
       
       {helperText && (
-        <p className={cn(
-          'mt-1 text-xs',
-          error ? 'text-red-500' : 'text-gray-500'
-        )}>
+        <p 
+          id={error ? errorId : helperTextId}
+          className={cn(
+            'mt-1 text-xs',
+            error ? 'text-red-500' : 'text-gray-500'
+          )}
+          role={error ? 'alert' : undefined}
+          aria-live={error ? 'polite' : undefined}
+        >
           {helperText}
         </p>
       )}

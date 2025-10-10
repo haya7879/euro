@@ -14,6 +14,11 @@ interface BreadcrumbProps {
   hoverColor?: string;
 }
 
+/**
+ * Breadcrumb Component
+ * SEO-optimized breadcrumb navigation with Schema.org BreadcrumbList markup
+ * Accessible with proper ARIA attributes and semantic HTML
+ */
 export default function Breadcrumb({
   items,
   className = "",
@@ -28,18 +33,37 @@ export default function Breadcrumb({
   return (
     <nav
       className={`flex items-center space-x-2 mb-4 ${className} overflow-x-auto scrollbar-hide`}
-      aria-label="Breadcrumb"
+      aria-label="Breadcrumb navigation"
+      itemScope
+      itemType="https://schema.org/BreadcrumbList"
     >
       {items.map((item, index) => (
         <Fragment key={index}>
-          <a
-            href={item.href}
-            className={`flex items-center whitespace-nowrap ${textColor} ${hoverColor} transition-colors no-underline`}
-            aria-current={index === items.length - 1 ? "page" : undefined}
+          <div
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/ListItem"
           >
-            {item.icon && <span className="mr-1">{item.icon}</span>}
-            <span className="lowercase text-sm whitespace-nowrap">{item.label}</span>
-          </a>
+            <meta itemProp="position" content={(index + 1).toString()} />
+            <a
+              href={item.href}
+              itemProp="item"
+              className={`flex items-center whitespace-nowrap ${textColor} ${hoverColor} transition-colors no-underline`}
+              aria-current={index === items.length - 1 ? "page" : undefined}
+            >
+              {item.icon && (
+                <span className="mr-1" aria-hidden="true">
+                  {item.icon}
+                </span>
+              )}
+              <span 
+                className="lowercase text-sm whitespace-nowrap"
+                itemProp="name"
+              >
+                {item.label}
+              </span>
+            </a>
+          </div>
           {index < items.length - 1 && (
             <span className={`${separatorColor} lowercase`} aria-hidden="true">
               /

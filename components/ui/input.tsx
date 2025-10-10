@@ -25,6 +25,11 @@ const inputSizes = {
   lg: 'h-12 px-4 text-base'
 }
 
+/**
+ * Input Component
+ * Accessible form input with proper ARIA attributes and label linking
+ * SEO-friendly with semantic HTML structure
+ */
 export default function Input({
   variant = 'default',
   inputSize = 'md',
@@ -36,8 +41,15 @@ export default function Input({
   fullWidth = true,
   className,
   suppressHydrationWarning,
+  id,
+  required,
   ...props
 }: InputProps) {
+  // Generate unique ID if not provided
+  const inputId = id || `input-${React.useId()}`
+  const helperTextId = helperText ? `${inputId}-helper` : undefined
+  const errorId = error && helperText ? `${inputId}-error` : undefined
+  
   const baseStyles = 'rounded-full font-medium text-[#374151] transition-all duration-300 focus:outline-none focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed'
   
   const variantStyles = inputVariants[variant]
@@ -50,19 +62,29 @@ export default function Input({
   return (
     <div className={fullWidth ? 'w-full' : 'inline-block'}>
       {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label 
+          htmlFor={inputId}
+          className="block text-sm font-medium text-gray-700 mb-2"
+        >
           {label}
+          {required && (
+            <span className="text-red-500 ml-1" aria-label="required">*</span>
+          )}
         </label>
       )}
       
       <div className="relative">
         {leftIcon && (
-          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+          <div 
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+            aria-hidden="true"
+          >
             {leftIcon}
           </div>
         )}
         
         <input
+          id={inputId}
           className={cn(
             baseStyles,
             variantStyles,
@@ -74,21 +96,33 @@ export default function Input({
             className
           )}
           suppressHydrationWarning={suppressHydrationWarning}
+          aria-invalid={error ? 'true' : 'false'}
+          aria-describedby={error ? errorId : helperTextId}
+          aria-required={required ? 'true' : undefined}
+          required={required}
           {...props}
         />
         
         {rightIcon && (
-          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+          <div 
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+            aria-hidden="true"
+          >
             {rightIcon}
           </div>
         )}
       </div>
       
       {helperText && (
-        <p className={cn(
-          'mt-1 text-xs',
-          error ? 'text-red-500' : 'text-gray-500'
-        )}>
+        <p 
+          id={error ? errorId : helperTextId}
+          className={cn(
+            'mt-1 text-xs',
+            error ? 'text-red-500' : 'text-gray-500'
+          )}
+          role={error ? 'alert' : undefined}
+          aria-live={error ? 'polite' : undefined}
+        >
           {helperText}
         </p>
       )}
