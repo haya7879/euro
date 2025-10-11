@@ -26,7 +26,7 @@ export default function CityCard({ city }: CityCardProps) {
           alt={city.image_alt || `Professional training courses in ${city.title}`}
           width={400}
           height={200}
-          className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300"
+          className="w-full !h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
           itemProp="image"
         />
