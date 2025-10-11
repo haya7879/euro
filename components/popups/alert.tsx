@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { CheckCircle, XCircle, AlertCircle, Info, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePopupStore } from "@/store/popup-store";
@@ -35,23 +35,9 @@ const iconStyles = {
   info: "text-blue-600",
 };
 
-const alertLabels = {
-  success: "Success notification",
-  error: "Error notification",
-  warning: "Warning notification",
-  info: "Information notification",
-};
-
-/**
- * AlertPopup Component
- * Accessible notification component with ARIA support
- * SEO-friendly with proper semantic structure
- */
 export default function AlertPopup() {
   const { alertData, closeAlert } = usePopupStore();
-  const alertRef = useRef<HTMLDivElement>(null);
 
-  // Auto close functionality
   useEffect(() => {
     if (alertData?.autoClose !== false && alertData?.duration) {
       const timer = setTimeout(() => {
@@ -62,39 +48,13 @@ export default function AlertPopup() {
     }
   }, [alertData, closeAlert]);
 
-  // Focus management for accessibility
-  useEffect(() => {
-    if (alertData && alertRef.current) {
-      alertRef.current.focus();
-    }
-  }, [alertData]);
-
-  // Close on Escape key
-  useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && alertData) {
-        closeAlert();
-      }
-    };
-
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [alertData, closeAlert]);
-
   if (!alertData) return null;
 
   const Icon = alertIcons[alertData.type];
 
   return (
-    <div 
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="alert-title"
-      aria-describedby={alertData.message ? "alert-message" : undefined}
-    >
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50">
       <div
-        ref={alertRef}
         className={cn(
           "min-w-[320px] max-w-[480px] w-full mx-4",
           "bg-white rounded-lg border-2",
@@ -103,30 +63,14 @@ export default function AlertPopup() {
         )}
         role="alert"
         aria-live="polite"
-        aria-atomic="true"
-        aria-label={alertLabels[alertData.type]}
-        tabIndex={-1}
       >
         <div className="p-6">
           <div className="flex items-start gap-4">
-            <Icon 
-              className={cn("w-8 h-8 flex-shrink-0 mt-1", iconStyles[alertData.type])} 
-              aria-hidden="true"
-            />
+            <Icon className={cn("w-8 h-8 flex-shrink-0 mt-1", iconStyles[alertData.type])} />
             <div className="flex-1 min-w-0">
-              <h3 
-                id="alert-title"
-                className="font-medium text-xl mb-2"
-              >
-                {alertData.title}
-              </h3>
+              <h3 className="font-bold text-xl mb-2">{alertData.title}</h3>
               {alertData.message && (
-                <p 
-                  id="alert-message"
-                  className="text-base opacity-90 leading-relaxed"
-                >
-                  {alertData.message}
-                </p>
+                <p className="text-base opacity-90 leading-relaxed">{alertData.message}</p>
               )}
             </div>
             {(alertData.showCloseButton !== false) && (
@@ -137,10 +81,9 @@ export default function AlertPopup() {
                   "focus:outline-none focus:ring-2 focus:ring-offset-2",
                   iconStyles[alertData.type]
                 )}
-                aria-label="Close notification"
-                type="button"
+                aria-label="إغلاق"
               >
-                <X className="w-5 h-5" aria-hidden="true" />
+                <X className="w-5 h-5" />
               </button>
             )}
           </div>

@@ -33,7 +33,6 @@ export default function CityHomeCard({ city }: CityHomeCardProps) {
               width={400}
               height={192}
               className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-              style={{ objectFit: 'cover' }}
               loading="lazy"
               itemProp="image"
             />

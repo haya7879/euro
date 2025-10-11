@@ -47,7 +47,6 @@ export default function BlogsPagination({
     <nav
       className="flex justify-center items-center gap-3 mt-12"
       aria-label="Blog articles pagination navigation"
-      role="navigation"
     >
       {/* Previous Button */}
       <button
@@ -78,11 +77,10 @@ export default function BlogsPagination({
 
           if (link.page === null) {
             return (
-              <li key={index} role="listitem">
+              <li key={index}>
                 <span
                   className="px-3 py-2 text-gray-400 text-sm"
                   aria-hidden="true"
-                  role="presentation"
                 >
                   ...
                 </span>
@@ -91,7 +89,7 @@ export default function BlogsPagination({
           }
 
           return (
-            <li key={index} role="listitem">
+            <li key={index}>
               <button
                 onClick={() => handlePageChange(link.page!)}
                 disabled={isPending}

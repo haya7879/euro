@@ -20,7 +20,7 @@ export default function CitiesSection({ cities }: CitiesSectionProps) {
         <h2 className="sr-only">Available Training Cities</h2>
         <meta itemProp="numberOfItems" content={String(cities.length)} />
 
-        <div role="list" aria-label="Professional training cities worldwide">
+        <div aria-label="Professional training cities worldwide">
           <div 
             className="grid gap-4"
             style={{

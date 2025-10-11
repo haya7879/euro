@@ -46,7 +46,6 @@ export default function BlogCard({ blog, className = "" }: BlogCardProps) {
             width={400}
             height={170}
             className="w-full h-[170px] md:h-[170px] sm:h-[150px] xs:h-[140px] object-cover rounded-md"
-            style={{ objectFit: 'cover' }}
             loading="lazy"
             itemProp="image"
           />

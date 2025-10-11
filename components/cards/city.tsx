@@ -27,7 +27,6 @@ export default function CityCard({ city }: CityCardProps) {
           width={400}
           height={200}
           className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300"
-          style={{ objectFit: 'cover' }}
           loading="lazy"
           itemProp="image"
         />

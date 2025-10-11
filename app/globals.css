@@ -9,17 +9,12 @@
 
 body {
   font-family: var(--font-exo), "Exo", system-ui, -apple-system, sans-serif;
-  font-feature-settings: "kern" 1;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* Performance optimizations */
-  contain: layout style;
-  /* Prevent layout shifts */
-  min-height: 100vh;
-  /* Hardware acceleration */
-  transform: translateZ(0);
-  will-change: auto;
+}
+
+/* Fix Next.js Image hydration issues */
+img[data-nimg] {
+  max-width: 100%;
+  height: auto;
 }
 
 .font-cairo {

@@ -50,12 +50,10 @@ export default function BlogsList({ blogsData, searchKeyword }: BlogsListProps) 
 
           <div
             className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-6 mb-8"
-            role="list"
             aria-label={`${blogs.total} professional training blog articles${searchKeyword ? ` matching "${searchKeyword}"` : ""}`}
           >
             {blogs.data.map((blog: Blog, index: number) => (
               <li 
-                role="listitem" 
                 key={blog.id}
                 itemProp="itemListElement"
                 itemScope

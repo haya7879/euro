@@ -63,7 +63,6 @@ export default function Navbar() {
       <nav 
         className="fixed top-0 left-0 w-full h-[70px] bg-white flex items-center z-[100]"
         aria-label="Main navigation"
-        role="navigation"
       >
         <div className="container mx-auto">
           <div className="w-full flex items-center justify-between">
@@ -78,14 +77,12 @@ export default function Navbar() {
                   width={190}
                   height={50}
                   priority
-                  fetchPriority="high"
-                  className="w-[160px] lg:w-[190px] h-auto"
-                  style={{ maxWidth: '100%', height: 'auto' }}
+                  className="w-[160px] lg:w-[190px] lg:h-[50px]"
                 />
               </Link>
             </div>
 
-            <ul className="hidden lg:flex gap-6" role="list" aria-label="Main navigation">
+            <ul className="hidden lg:flex gap-6">
               {navLinks.map((link) => (
                 <li
                   key={link.href}
@@ -124,8 +121,7 @@ export default function Navbar() {
                 className="w-11 h-11 rounded-xl border-2 border-[#DDE9FF] flex items-center justify-center cursor-pointer bg-gradient-to-br from-[#f8faff] to-[#f0f4ff] outline-none transition-all duration-300 ease-out shadow-[0_2px_8px_rgba(49,78,169,0.1)] hover:shadow-lg"
                 onClick={openSidebar}
                 aria-label="Open navigation menu"
-                aria-expanded={isSidebarOpen}
-                aria-controls="mobile-navigation"
+                suppressHydrationWarning
               >
                 <Menu className="w-5 h-5 font-semibold text-blue-600" aria-hidden="true" />
               </button>
@@ -182,7 +178,6 @@ export default function Navbar() {
                     height={42}
                     loading="lazy"
                     className="w-40 h-auto max-[480px]:w-36"
-                    style={{ maxWidth: '100%', height: 'auto' }}
                   />
                   <motion.button
                     className="w-10 h-10 border-none rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-blue-500/15 hover:scale-105"

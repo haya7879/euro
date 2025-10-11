@@ -49,12 +49,11 @@ export default function Footer() {
                 width={175}
                 height={48}
                 className="w-[190px] h-auto mb-8 mt-2"
-                style={{ maxWidth: '100%', height: 'auto' }}
                 itemProp="logo"
               />
             </Link>
             <address className="not-italic">
-              <ul className="flex flex-col gap-4" role="list">
+              <ul className="flex flex-col gap-4">
                 <li className="list-none flex items-start gap-2">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <span className="text-base">
@@ -109,7 +108,7 @@ export default function Footer() {
             >
               Popular Categories
             </h2>
-            <ul className="flex flex-col gap-1.5" role="list">
+            <ul className="flex flex-col gap-1.5">
               {popularCategories.map((category) => (
                 <li key={category.slug}>
                   <Link
@@ -135,7 +134,7 @@ export default function Footer() {
             >
               Quick Access
             </h2>
-            <ul className="flex flex-col gap-1.5" role="list">
+            <ul className="flex flex-col gap-1.5">
               {quickAccessLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -174,9 +173,9 @@ export default function Footer() {
 
             <div className="mb-4">
               <h3 className="sr-only">Follow us on social media</h3>
-              <ul className="flex gap-2" role="list" aria-label="Social media links">
+              <ul className="flex gap-2" aria-label="Social media links">
                 {socialLinks.map((social, index) => (
-                  <li key={index} role="listitem">
+                  <li key={index}>
                     <Link
                       href={social.href}
                       className="w-10 h-10 bg-white rounded-lg flex items-center justify-center transition-transform duration-300 hover:-translate-y-0.5"
