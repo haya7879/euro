@@ -13,6 +13,8 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Performance optimizations */
+  contain: layout style;
 }
 
 .font-cairo {
@@ -139,18 +141,28 @@ body {
   position: relative;
   margin: 0 -12px;
   overflow: hidden;
+  /* Performance optimizations */
+  contain: layout style paint;
+  content-visibility: auto;
 
   .cities-swiper {
     padding: 8px;
     overflow: hidden;
+    /* Hardware acceleration */
+    transform: translateZ(0);
+    will-change: transform;
 
     .swiper-slide {
       height: auto;
       width: auto !important;
+      /* Prevent layout shifts */
+      contain: layout style paint;
     }
 
     .swiper-wrapper {
       align-items: stretch;
+      /* Hardware acceleration */
+      transform: translateZ(0);
     }
 
     .swiper-pagination {
@@ -200,6 +212,10 @@ body {
   transition: transform 0.3s, box-shadow 0.3s;
   width: 220px;
   flex-shrink: 0;
+  /* Performance optimizations */
+  contain: layout style paint;
+  will-change: transform;
+  transform: translateZ(0);
 
   .city-image {
     width: 100%;
@@ -300,6 +316,10 @@ body {
   border-radius: 0.75rem;
   cursor: pointer;
   flex-shrink: 0;
+  /* Performance optimizations */
+  contain: layout style paint;
+  will-change: transform;
+  transform: translateZ(0);
 
   .course-image {
     width: 100%;
@@ -393,18 +413,29 @@ body {
   position: relative;
   margin: 0 -12px;
   overflow: hidden;
+  /* Performance optimizations */
+  contain: layout style paint;
+  content-visibility: auto;
 
   .courses-swiper {
     padding: 8px;
     overflow: hidden;
+    /* Hardware acceleration */
+    transform: translateZ(0);
+    will-change: transform;
 
     .swiper-slide {
       height: auto;
       width: auto !important;
+      
+      /* Prevent layout shifts */
+      contain: layout style paint;
     }
 
     .swiper-wrapper {
       align-items: stretch;
+      /* Hardware acceleration */
+      transform: translateZ(0);
     }
 
     .swiper-pagination {

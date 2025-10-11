@@ -26,47 +26,63 @@ export default function UpcomingCoursesSlider({ upcomingCourses }: UpcomingCours
   useEffect(() => {
     if (!isClient || !upcomingCourses) return;
 
-    // Initialize Swiper
-    const coursesSwiper = new Swiper('.courses-swiper', {
-      modules: [Navigation, Pagination, Autoplay],
-      slidesPerView: 'auto',
-      spaceBetween: 8,
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.courses-swiper .swiper-pagination',
-        clickable: true,
-        dynamicBullets: true,
-      },
-      navigation: {
-        nextEl: '.courses-slider .next-btn',
-        prevEl: '.courses-slider .prev-btn',
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 'auto',
+    // Use requestAnimationFrame to batch DOM reads
+    const rafId = requestAnimationFrame(() => {
+      // Initialize Swiper with fixed values instead of 'auto' to avoid forced reflow
+      const coursesSwiper = new Swiper('.courses-swiper', {
+        modules: [Navigation, Pagination, Autoplay],
+        slidesPerView: 1,
+        spaceBetween: 8,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
         },
-        1024: {
-          slidesPerView: 'auto',
+        speed: 800,
+        // Disable resize observer to prevent forced reflows
+        observer: false,
+        resizeObserver: false,
+        pagination: {
+          el: '.courses-swiper .swiper-pagination',
+          clickable: true,
+          dynamicBullets: true,
         },
-      },
+        navigation: {
+          nextEl: '.courses-slider .next-btn',
+          prevEl: '.courses-slider .prev-btn',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+          },
+          1280: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+        },
+      });
+
+      return coursesSwiper;
     });
 
     return () => {
-      if (coursesSwiper) coursesSwiper.destroy();
+      cancelAnimationFrame(rafId);
     };
   }, [upcomingCourses, isClient]);
 
   return (
-    <div className="courses-slider relative pb-4">
+    <div className="courses-slider relative pb-4" style={{ contentVisibility: 'auto' }}>
       {/* Swiper Container */}
-      <div className={`courses-swiper overflow-hidden ${!isClient ? "opacity-0" : "opacity-100"}`}>
+      <div className={`courses-swiper overflow-hidden ${!isClient ? "opacity-0" : "opacity-100"}`} style={{ contain: 'layout style paint' }}>
         <div className="swiper-wrapper">
           {upcomingCourses.map((course) => (
-            <div key={course.timing_id} className="swiper-slide">
+            <div key={course.timing_id} className="swiper-slide" style={{ width: 'auto' }}>
               <UpcommingCourseCard course={course} />
             </div>
           ))}

@@ -23,58 +23,69 @@ export default function CitiesSlider({ cities }: CitiesSliderProps) {
   useEffect(() => {
     if (!isClient || !cities) return;
 
-    // Initialize Swiper
-    const citiesSwiper = new Swiper('.cities-swiper', {
-      modules: [Navigation, Pagination, Autoplay],
-      slidesPerView: 'auto',
-      spaceBetween: 8,
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      speed: 800,
-      pagination: {
-        el: '.cities-swiper .swiper-pagination',
-        clickable: true,
-        dynamicBullets: true,
-      },
-      navigation: {
-        nextEl: '.cities-slider .next-btn',
-        prevEl: '.cities-slider .prev-btn',
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 'auto',
-          spaceBetween: 10,
+    // Use requestAnimationFrame to batch DOM reads
+    const rafId = requestAnimationFrame(() => {
+      // Initialize Swiper with fixed values instead of 'auto' to avoid forced reflow
+      const citiesSwiper = new Swiper('.cities-swiper', {
+        modules: [Navigation, Pagination, Autoplay],
+        slidesPerView: 2,
+        spaceBetween: 8,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
         },
-        768: {
-          slidesPerView: 'auto',
-          spaceBetween: 15,
+        speed: 800,
+        // Disable resize observer to prevent forced reflows
+        observer: false,
+        resizeObserver: false,
+        // Use CSS mode for better performance
+        cssMode: false,
+        pagination: {
+          el: '.cities-swiper .swiper-pagination',
+          clickable: true,
+          dynamicBullets: true,
         },
-        1024: {
-          slidesPerView: 'auto',
-          spaceBetween: 20,
+        navigation: {
+          nextEl: '.cities-slider .next-btn',
+          prevEl: '.cities-slider .prev-btn',
         },
-        1100: {
-          slidesPerView: 'auto',
-          spaceBetween: 20,
+        breakpoints: {
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 15,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 20,
+          },
+          1280: {
+            slidesPerView: 6,
+            spaceBetween: 20,
+          },
         },
-      },
+      });
+
+      return citiesSwiper;
     });
 
     return () => {
-      if (citiesSwiper) citiesSwiper.destroy();
+      cancelAnimationFrame(rafId);
     };
   }, [cities, isClient]);
 
   return (
-    <div className="cities-slider relative pb-4">
+    <div className="cities-slider relative pb-4" style={{ contentVisibility: 'auto' }}>
       {/* Swiper Container */}
-      <div className={`cities-swiper overflow-hidden ${!isClient ? "opacity-0" : "opacity-100"}`}>
+      <div className={`cities-swiper overflow-hidden ${!isClient ? "opacity-0" : "opacity-100"}`} style={{ contain: 'layout style paint' }}>
         <div className="swiper-wrapper">
           {cities.map((city) => (
-            <div key={city.id} className="swiper-slide">
+            <div key={city.id} className="swiper-slide" style={{ width: 'auto' }}>
               <CityHomeCard city={city} />
             </div>
           ))}
