@@ -18,9 +18,9 @@ export default async function UpcomingCoursesSection() {
       <Image
         src="/assets/images/categories-shape.svg"
         alt=""
-        width={250}
-        height={250}
-        className="categories-shape absolute left-[-100px] top-0 w-[250px] h-[250px]"
+        width={213}
+        height={300}
+        className="categories-shape absolute left-[-100px] top-0 w-[213px] h-[300px]"
         aria-hidden="true"
         loading="lazy"
       />
