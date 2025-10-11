@@ -13,11 +13,11 @@ export default function CityHomeCard({ city }: CityHomeCardProps) {
   return (
     <Link
       href={`/training-cities/${city.slug}`}
-      className="px-2"
+      className="city-card block group cursor-pointer"
+
       aria-label={`View training courses in ${city.title} - ${coursesCount}+ courses available`}
     >
       <article 
-        className="city-card block group cursor-pointer"
         itemScope 
         itemType="https://schema.org/Place"
       >
