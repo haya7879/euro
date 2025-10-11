@@ -35,6 +35,7 @@ export default function TimingCard({
     <article
       itemScope
       itemType="https://schema.org/CourseInstance"
+      aria-labelledby={`course-location-${timing.id}`}
     >
       <meta itemProp="courseMode" content="onsite" />
       <meta itemProp="startDate" content={timing.start_date} />
@@ -42,8 +43,8 @@ export default function TimingCard({
       
       <Link
         href={`/training-course/${course.slug}/${timing.city.slug}`}
-        className="bg-white rounded-xl border border-gray-200 shadow-[1px_1px_17px_0_rgba(62,94,192,0.22)] transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden relative group h-max block"
-        aria-label={`${course.title} training in ${timing.city.title} - Starting ${formatDate?.(timing.start_date)} - Fees: €${timing.fees}`}
+        className="bg-white rounded-xl border border-gray-200 shadow-[1px_1px_17px_0_rgba(62,94,192,0.22)] transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#3E5EC0] focus:ring-offset-2 cursor-pointer overflow-hidden relative group h-max block"
+        aria-label={`${course.title} training in ${timing.city.title}, starting ${formatDate?.(timing.start_date)}, fees €${timing.fees}. Click to view details.`}
       >
         {/* Hover Effect Line */}
         <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#314EA9] to-[#446AE1] opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
@@ -53,26 +54,28 @@ export default function TimingCard({
           <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-200">
             <div className="flex items-center gap-2" itemProp="location" itemScope itemType="https://schema.org/Place">
               <MapPin size={16} className="text-[#3E5EC0]" aria-hidden="true" />
-              <h3 
+              <h2 
+                id={`course-location-${timing.id}`}
                 className="text-sm font-semibold text-[#253a7b] m-0"
                 itemProp="name"
               >
                 {timing.city.title}
-              </h3>
+              </h2>
             </div>
             <div 
               className="price text-[#253a7b] font-semibold text-sm flex items-center gap-1"
               itemProp="offers"
               itemScope
               itemType="https://schema.org/Offer"
+              aria-label={`Course fees: ${timing.fees} euros`}
             >
               <meta itemProp="price" content={String(timing.fees)} />
               <meta itemProp="priceCurrency" content="EUR" />
-              Fees: {Number(timing.fees) + 0} <Euro size={14} aria-hidden="true" />
+              <span aria-hidden="true">Fees: {Number(timing.fees) + 0} <Euro size={14} className="inline" /></span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2" role="group" aria-label="Course dates">
             <div className="flex items-center gap-1">
               <Calendar size={16} className="text-gray-500" aria-hidden="true" />
               <span className="label text-xs whitespace-nowrap text-gray-600 font-medium">
@@ -102,7 +105,7 @@ export default function TimingCard({
         </div>
 
         {/* Card Actions */}
-        <footer className="flex gap-2 p-3">
+        <footer className="flex gap-2 p-3" role="group" aria-label="Course actions">
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -110,8 +113,8 @@ export default function TimingCard({
               handleDownloadClick();
             }}
             type="button"
-            className="flex-1 h-6.5 text-[11px] bg-[#3E5EC0] text-white cursor-pointer rounded-full font-semibold hover:bg-gradient-to-r hover:from-[#4E71D4] hover:to-[#324B9A] transition-all duration-200 hover:scale-105 flex items-center justify-center gap-1"
-            aria-label="Download course brochure PDF"
+            className="flex-1 h-6.5 text-[11px] bg-[#3E5EC0] text-white cursor-pointer rounded-full font-semibold hover:bg-gradient-to-r hover:from-[#4E71D4] hover:to-[#324B9A] focus:outline-none focus:ring-2 focus:ring-[#3E5EC0] focus:ring-offset-1 transition-all duration-200 hover:scale-105 flex items-center justify-center gap-1"
+            aria-label={`Download ${course.title} brochure PDF for ${timing.city.title}`}
           >
             PDF
           </button>
@@ -122,8 +125,8 @@ export default function TimingCard({
               handleRegisterClick();
             }}
             type="button"
-            className="flex-1 h-6.5 text-[11px] bg-white text-[#3E5EC0] border border-[#3E5EC0] cursor-pointer rounded-full font-semibold hover:bg-gradient-to-r hover:from-[#4E71D4] hover:to-[#324B9A] hover:text-white transition-all duration-200 hover:scale-105 flex items-center justify-center gap-1"
-            aria-label="Register for this course"
+            className="flex-1 h-6.5 text-[11px] bg-white text-[#3E5EC0] border border-[#3E5EC0] cursor-pointer rounded-full font-semibold hover:bg-gradient-to-r hover:from-[#4E71D4] hover:to-[#324B9A] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#3E5EC0] focus:ring-offset-1 transition-all duration-200 hover:scale-105 flex items-center justify-center gap-1"
+            aria-label={`Register for ${course.title} in ${timing.city.title}`}
           >
             Register
           </button>
@@ -134,8 +137,8 @@ export default function TimingCard({
               handleInquireClick();
             }}
             type="button"
-            className="flex-1 h-6.5 text-[11px] bg-white text-[#3E5EC0] border border-[#3E5EC0] cursor-pointer rounded-full font-semibold hover:bg-gradient-to-r hover:from-[#4E71D4] hover:to-[#324B9A] hover:text-white transition-all duration-200 hover:scale-105 flex items-center justify-center gap-1"
-            aria-label="Enquire about this course"
+            className="flex-1 h-6.5 text-[11px] bg-white text-[#3E5EC0] border border-[#3E5EC0] cursor-pointer rounded-full font-semibold hover:bg-gradient-to-r hover:from-[#4E71D4] hover:to-[#324B9A] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#3E5EC0] focus:ring-offset-1 transition-all duration-200 hover:scale-105 flex items-center justify-center gap-1"
+            aria-label={`Enquire about ${course.title} in ${timing.city.title}`}
           >
             Enquire
           </button>
