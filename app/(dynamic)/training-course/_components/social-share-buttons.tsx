@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { FaFacebookF, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { Facebook, Linkedin, X } from "lucide-react";
 
 interface SocialShareButtonsProps {
   courseUrl: string;
@@ -41,8 +41,9 @@ export default function SocialShareButtons({
         target="_blank"
         rel="noopener noreferrer"
         className="social-btn facebook-btn flex items-center justify-center w-10 h-10 bg-[#1877f2] text-white rounded-lg no-underline font-medium text-lg transition-all duration-300 shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:bg-[#166fe5] hover:text-white hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:no-underline"
+        aria-label="Share on Facebook"
       >
-        <FaFacebookF />
+        <Facebook size={18} />
       </Link>
 
       {/* X (Twitter) */}
@@ -51,8 +52,9 @@ export default function SocialShareButtons({
         target="_blank"
         rel="noopener noreferrer"
         className="social-btn twitter-btn flex items-center justify-center w-10 h-10 bg-[#1da1f2] text-white rounded-lg no-underline font-medium text-lg transition-all duration-300 shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:bg-[#0d8bd9] hover:text-white hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:no-underline"
+        aria-label="Share on Twitter"
       >
-        <FaXTwitter />
+        <X size={18} />
       </Link>
 
       {/* LinkedIn */}
@@ -61,8 +63,9 @@ export default function SocialShareButtons({
         target="_blank"
         rel="noopener noreferrer"
         className="social-btn linkedin-btn flex items-center justify-center w-10 h-10 bg-[#0a66c2] text-white rounded-lg no-underline font-medium text-lg transition-all duration-300 shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:bg-[#004182] hover:text-white hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:no-underline"
+        aria-label="Share on LinkedIn"
       >
-        <FaLinkedinIn />
+        <Linkedin size={18} />
       </Link>
     </div>
   );

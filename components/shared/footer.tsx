@@ -183,7 +183,7 @@ export default function Footer() {
                       aria-label={`Visit our ${social.name} page`}
                       itemProp="sameAs"
                     >
-                      <social.Icon className="text-[#2A3453] text-xl" aria-hidden="true" />
+                      <social.Icon className="text-[#2A3453]" size={20} aria-hidden="true" />
                     </Link>
                   </li>
                 ))}

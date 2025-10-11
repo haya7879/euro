@@ -1,5 +1,5 @@
 import { generateDynamicMonths } from "@/functions";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { Facebook, Instagram, Linkedin, X } from "lucide-react";
 
 
 export const months = generateDynamicMonths();
@@ -42,10 +42,10 @@ export const quickAccessLinks = [
 ];
 
 export const socialLinks = [
-  { href: "#", Icon: FaFacebookF, name: "Facebook" },
-  { href: "#", Icon: FaInstagram, name: "Instagram" },
-  { href: "#", Icon: FaXTwitter, name: "Twitter" },
-  { href: "#", Icon: FaLinkedinIn, name: "LinkedIn" },
+  { href: "#", Icon: Facebook, name: "Facebook" },
+  { href: "#", Icon: Instagram, name: "Instagram" },
+  { href: "#", Icon: X, name: "Twitter" },
+  { href: "#", Icon: Linkedin, name: "LinkedIn" },
 ];
 
 export const orderedMonths = generateDynamicMonths();
