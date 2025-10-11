@@ -61,10 +61,7 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 1,
       },
     ],
-    sitemap: [
-      `${baseUrl}/sitemap_index.xml`,
-      `${baseUrl}/sitemap.xml`,
-    ],
+    sitemap: `${baseUrl}/sitemap_index.xml`,
     host: baseUrl,
   }
 }
