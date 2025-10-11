@@ -28,7 +28,7 @@ export default async function CitiesSection() {
 
       <Container>
         {/* Section Header */}
-        <header className="flex flex-col md:flex-row md:items-center items-start gap-3 md:justify-between">
+        <header className="md:mb-10 mb-8 flex flex-col md:flex-row md:items-center items-start gap-3 md:justify-between">
           <SectionTitle
             title="Discover All"
             highlight="Cities"
