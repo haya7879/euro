@@ -31,6 +31,10 @@ const nextConfig: NextConfig = {
         hostname: 'api.euroqst.com',
         pathname: '/assets/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'flagcdn.com',
+      },
     ],
   },
   
@@ -47,11 +51,11 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
   
   // Experimental features for better performance
-  experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion', 'react-icons', '@tanstack/react-query'],
-    optimizeCss: true,
-    webpackMemoryOptimizations: true,
-  },
+  // experimental: {
+  //   optimizePackageImports: ['lucide-react', 'framer-motion', 'react-icons', '@tanstack/react-query'],
+  //   optimizeCss: true,
+  //   webpackMemoryOptimizations: true,
+  // },
   
   // Modularize imports to reduce bundle size
   modularizeImports: {
@@ -107,7 +111,7 @@ const nextConfig: NextConfig = {
               "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://vercel.live https://va.vercel-scripts.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com data:",
-              "img-src 'self' https://euroqst.com https://api.euroqst.com https://www.google.com https://www.gstatic.com https://vercel.live data: blob:",
+              "img-src 'self' https://euroqst.com https://api.euroqst.com https://flagcdn.com https://www.google.com https://www.gstatic.com https://vercel.live data: blob:",
               "connect-src 'self' https://api.euroqst.com https://www.google.com https://vercel.live https://vitals.vercel-insights.com https://vitals.vercel-analytics.com",
               "frame-src 'self' https://www.google.com https://vercel.live",
               "media-src 'self' data: blob:",
