@@ -36,7 +36,7 @@ export default function CategoryCard({ category }: { category: Category }) {
 
         {/* Category Title */}
         <h3 
-          className="text-[15px] font-semibold text-[#2d3748] leading-tight m-0 transition-all duration-300 min-h-[45px] line-clamp-2 mt-1.5 group-hover:text-[#1a202c] group-hover:transform group-hover:translate-x-1"
+          className="text-[15px] h-[58px] font-semibold text-[#2d3748] leading-tight m-0 transition-all duration-300 min-h-[45px] line-clamp-2 mt-1.5 group-hover:text-[#1a202c] group-hover:transform group-hover:translate-x-1"
           itemProp="name"
         >
           {category.title}
