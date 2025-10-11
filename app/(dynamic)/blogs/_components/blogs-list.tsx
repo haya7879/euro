@@ -54,7 +54,7 @@ export default function BlogsList({ blogsData, searchKeyword }: BlogsListProps) 
             aria-label={`${blogs.total} professional training blog articles${searchKeyword ? ` matching "${searchKeyword}"` : ""}`}
           >
             {blogs.data.map((blog: Blog, index: number) => (
-              <article 
+              <li 
                 role="listitem" 
                 key={blog.id}
                 itemProp="itemListElement"
@@ -65,7 +65,7 @@ export default function BlogsList({ blogsData, searchKeyword }: BlogsListProps) 
                 <div itemProp="item" itemScope itemType="https://schema.org/BlogPosting">
                   <BlogCard blog={blog} />
                 </div>
-              </article>
+              </li>
             ))}
           </div>
 
