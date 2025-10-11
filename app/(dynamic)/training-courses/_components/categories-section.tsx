@@ -23,13 +23,11 @@ export default function CategoriesSection({
         <h2 className="sr-only">Available Training Categories</h2>
         <meta itemProp="numberOfItems" content={String(categories.length)} />
 
-        <div role="list" aria-label="Browse professional training categories">
-          <AnimatedCategoriesGrid>
-            {categories.map((category) => (
-              <CategoryCard key={category.slug} category={category} />
-            ))}
-          </AnimatedCategoriesGrid>
-        </div>
+        <AnimatedCategoriesGrid>
+          {categories.map((category) => (
+            <CategoryCard key={category.slug} category={category} />
+          ))}
+        </AnimatedCategoriesGrid>
       </section>
     </>
   );
