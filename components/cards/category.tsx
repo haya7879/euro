@@ -25,9 +25,10 @@ export default function CategoryCard({ category }: { category: Category }) {
           <Image
             src={category.icon}
             alt=""
-            width={20}
-            height={20}
+            width={32}
+            height={32}
             className="w-5 h-5 brightness-0 invert transition-all duration-300 z-10 relative group-hover:scale-110"
+            style={{ maxWidth: '100%', height: 'auto' }}
             aria-hidden="true"
             loading="lazy"
           />
