@@ -116,9 +116,9 @@ export default function AboutSection({ className = "" }: AboutSectionProps) {
             <Link
               href="/about"
               className="inline-flex items-center gap-3 bg-[#3E5EC0] hover:bg-[#2d4aa7] text-white px-8 py-3 rounded-lg font-semibold text-base transform group transition-colors duration-300"
-              aria-label="Read more about EuroQuest International training institute"
+              aria-label="Learn more about EuroQuest International training institute"
             >
-              Read More
+              Learn More About Us
               <svg
                 className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                 fill="none"
