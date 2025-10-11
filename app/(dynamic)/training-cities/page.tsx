@@ -106,7 +106,7 @@ export default async function CitiesPage({ searchParams }: CitiesPageProps) {
   const breadcrumbs: BreadcrumbItem[] = [
     {
       href: "/",
-      label: "",
+      label: "Home",
       icon: <Home size={14} />,
     },
     {

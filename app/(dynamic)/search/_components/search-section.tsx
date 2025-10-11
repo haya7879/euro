@@ -67,6 +67,8 @@ export default function SearchSection() {
       </div>
 
       <div className="container mx-auto pb-13">
+        <h2 className="sr-only">Search Results for Training Courses</h2>
+        
         {/* Search Summary */}
         <SearchSummary
           totalCount={totalCount}

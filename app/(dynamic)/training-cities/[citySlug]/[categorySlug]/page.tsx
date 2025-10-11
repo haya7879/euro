@@ -115,7 +115,7 @@ export default async function Page({
   const breadcrumbs: BreadcrumbItem[] = [
     {
       href: "/",
-      label: "",
+      label: "Home",
       icon: <Home size={14} />,
     },
     {

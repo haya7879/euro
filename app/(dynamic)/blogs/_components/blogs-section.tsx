@@ -57,6 +57,8 @@ export default async function BlogsSection({
 
   return (
     <div role="region" aria-label="Blog articles section">
+      <h2 className="sr-only">Blog Articles and Resources</h2>
+      
       {/* Client Component for Search Input */}
       <SearchInput
         placeholder="Search training blogs, courses, and professional development articles"

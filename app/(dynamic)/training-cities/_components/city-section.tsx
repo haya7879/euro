@@ -28,6 +28,7 @@ export default function CitySection({
 
   return (
     <div itemScope itemType="https://schema.org/ItemList">
+      <h2 className="sr-only">Training Courses in This City</h2>
       <meta itemProp="numberOfItems" content={String(filteredCourses.length)} />
       
       {/* Course Search - Client Component */}

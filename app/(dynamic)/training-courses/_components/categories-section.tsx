@@ -20,15 +20,16 @@ export default function CategoriesSection({
         itemScope
         itemType="https://schema.org/ItemList"
       >
+        <h2 className="sr-only">Available Training Categories</h2>
         <meta itemProp="numberOfItems" content={String(categories.length)} />
 
-        <nav role="list" aria-label="Browse professional training categories">
+        <div role="list" aria-label="Browse professional training categories">
           <AnimatedCategoriesGrid>
             {categories.map((category) => (
               <CategoryCard key={category.slug} category={category} />
             ))}
           </AnimatedCategoriesGrid>
-        </nav>
+        </div>
       </section>
     </>
   );

@@ -55,6 +55,8 @@ export default function CityCategorySection({
 
   return (
     <>
+      <h2 className="sr-only">Training Courses in This Category and City</h2>
+      
       {/* Course Search - Client Component */}
       <CityCategorySearch />
 

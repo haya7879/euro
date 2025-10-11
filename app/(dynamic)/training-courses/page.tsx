@@ -107,7 +107,7 @@ export default async function CategoriesPage({ searchParams }: CategoriesPagePro
   const breadcrumbs: BreadcrumbItem[] = [
     {
       href: "/",
-      label: "",
+      label: "Home",
       icon: <Home size={14} />,
     },
     {

@@ -50,6 +50,7 @@ export default function Breadcrumb({
               itemProp="item"
               className={`flex items-center whitespace-nowrap ${textColor} ${hoverColor} transition-colors no-underline`}
               aria-current={index === items.length - 1 ? "page" : undefined}
+              aria-label={item.label || `Navigate to ${item.href}`}
             >
               {item.icon && (
                 <span className="mr-1" aria-hidden="true">

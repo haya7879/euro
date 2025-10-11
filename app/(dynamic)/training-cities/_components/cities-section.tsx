@@ -1,5 +1,4 @@
 import CityCard from "@/components/cards/city";
-import AnimatedCitiesGrid from "@/components/shared/animated";
 import SearchBanner from "@/components/shared/search-banner";
 
 interface CitiesSectionProps {
@@ -10,36 +9,44 @@ export default function CitiesSection({ cities }: CitiesSectionProps) {
   return (
     <>
       {/* Search Banner */}
-        <SearchBanner resetBehavior="local" />
+      <SearchBanner resetBehavior="local" />
 
       {/* Display Cities */}
-      <section 
+      <section
         aria-label={`${cities.length} training cities available`}
         itemScope
         itemType="https://schema.org/ItemList"
       >
         <meta itemProp="numberOfItems" content={String(cities.length)} />
-        
-        <nav role="list" aria-label="Professional training cities worldwide">
-          <AnimatedCitiesGrid>
+
+        <div role="list" aria-label="Professional training cities worldwide">
+          <div 
+            className="grid gap-4"
+            style={{
+              gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))"
+            }}
+          >
             {cities.map((city, index) => (
-              <article 
+              <div
                 key={city.id}
+                role="listitem"
                 itemProp="itemListElement"
                 itemScope
                 itemType="https://schema.org/ListItem"
-                role="listitem"
               >
                 <meta itemProp="position" content={String(index + 1)} />
-                <div itemProp="item" itemScope itemType="https://schema.org/Place">
+                <article
+                  itemProp="item"
+                  itemScope
+                  itemType="https://schema.org/Place"
+                >
                   <CityCard city={city} />
-                </div>
-              </article>
+                </article>
+              </div>
             ))}
-          </AnimatedCitiesGrid>
-        </nav>
+          </div>
+        </div>
       </section>
     </>
   );
 }
-

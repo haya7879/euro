@@ -105,7 +105,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
   const breadcrumbs = [
     {
       href: "/",
-      label: "",
+      label: "Home",
       icon: <Home size={14} />,
     },
     {

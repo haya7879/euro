@@ -88,7 +88,7 @@ export default function TermsPage() {
   const breadcrumbs: BreadcrumbItem[] = [
     {
       href: "/",
-      label: "",
+      label: "Home",
       icon: <Home width={16} height={16}/>
     },
     {

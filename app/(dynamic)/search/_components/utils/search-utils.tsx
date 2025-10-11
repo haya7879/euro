@@ -44,7 +44,7 @@ export function formatDate(dateString: string): string {
 
 export function generateSearchBreadcrumbs() {
   return [
-    { label: "", href: "/", icon: <Home size={16} />, },
+    { label: "Home", href: "/", icon: <Home size={16} />, },
     { label: "Search Results", href: "#" },
   ];
 }

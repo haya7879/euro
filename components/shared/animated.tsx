@@ -1,5 +1,5 @@
 "use client";
-import { motion, LazyMotion, domAnimation } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { ReactNode } from "react";
 
 interface AnimatedCitiesGridProps {
@@ -18,7 +18,7 @@ export default function AnimatedCitiesGrid({
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <motion.div
+      <m.div
         className="grid gap-4"
         style={{
           gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
@@ -36,7 +36,7 @@ export default function AnimatedCitiesGrid({
         }}
       >
         {children}
-      </motion.div>
+      </m.div>
     </LazyMotion>
   );
 }
@@ -57,7 +57,7 @@ export function AnimatedCityCard({ children }: { children: ReactNode }) {
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <motion.div
+      <m.div
         variants={cardVariants}
         style={{
           contain: "layout style paint",
@@ -83,7 +83,7 @@ export function AnimatedCityCard({ children }: { children: ReactNode }) {
         }}
       >
         {children}
-      </motion.div>
+      </m.div>
     </LazyMotion>
   );
 }
@@ -99,7 +99,7 @@ export function AnimatedCoursesList({ children }: { children: ReactNode }) {
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <motion.div
+      <m.div
         className="flex flex-col gap-4"
         style={{
           contain: "layout style paint",
@@ -116,7 +116,7 @@ export function AnimatedCoursesList({ children }: { children: ReactNode }) {
         }}
       >
         {children}
-      </motion.div>
+      </m.div>
     </LazyMotion>
   );
 }
@@ -137,7 +137,7 @@ export function AnimatedCourseCard({ children }: { children: ReactNode }) {
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <motion.div
+      <m.div
         variants={cardVariants}
         style={{
           contain: "layout style paint",
@@ -163,7 +163,7 @@ export function AnimatedCourseCard({ children }: { children: ReactNode }) {
         }}
       >
         {children}
-      </motion.div>
+      </m.div>
     </LazyMotion>
   );
 }
@@ -179,8 +179,8 @@ export function AnimatedCategoriesGrid({ children }: { children: ReactNode }) {
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <motion.div
-        className="grid gap-4"
+      <m.div
+        className="grid gap-4 p-5"
         style={{
           gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
           contain: "layout style paint",
@@ -197,7 +197,7 @@ export function AnimatedCategoriesGrid({ children }: { children: ReactNode }) {
         }}
       >
         {children}
-      </motion.div>
+      </m.div>
     </LazyMotion>
   );
 }
@@ -216,7 +216,7 @@ export function AnimatedCategoryCard({ children }: { children: ReactNode }) {
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <motion.div
+      <m.div
         variants={cardVariants}
         style={{
           contain: "layout style paint",
@@ -232,7 +232,7 @@ export function AnimatedCategoryCard({ children }: { children: ReactNode }) {
         }}
       >
         {children}
-      </motion.div>
+      </m.div>
     </LazyMotion>
   );
 }

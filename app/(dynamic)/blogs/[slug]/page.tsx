@@ -108,7 +108,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const breadcrumbs = [
     {
       href: "/",
-      label: "",
+      label: "Home",
       icon: <Home size={14} />,
     },
     {

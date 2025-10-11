@@ -124,7 +124,7 @@ export default async function Page({ params }: PageProps) {
   const baseUrl = DOMAIN;
 
   const breadcrumbs: BreadcrumbItem[] = [
-    { href: "/", label: "", icon: <Home size={14} /> },
+    { href: "/", label: "Home", icon: <Home size={14} /> },
     { href: "/training-cities", label: "cities" },
     { href: `/training-cities/${city.slug}`, label: city.title },
     {

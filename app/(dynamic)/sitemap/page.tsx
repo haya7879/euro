@@ -39,7 +39,7 @@ export default async function SitemapPage() {
   const breadcrumbs = [
     {
       href: "/",
-      label: "",
+      label: "Home",
       icon: <Home width={16} height={16} />,
     },
     {
