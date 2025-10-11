@@ -25,7 +25,7 @@ export default function SectionTitle({
   const HeadingTag = headingLevel;
 
   return (
-    <>
+    <div>
       <HeadingTag
         className="text-2xl md:text-3xl font-bold flex flex-row items-start md:items-center gap-1 md:gap-2"
         itemProp="headline"
@@ -53,6 +53,6 @@ export default function SectionTitle({
           {description}
         </p>
       )}
-    </>
+    </div>
   );
 }
