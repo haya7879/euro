@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { getCityDetails } from "@/services/services";
 import Schema from "@/components/shared/schema";
 import HeroBanner from "@/components/shared/hero-banner";
@@ -7,10 +8,40 @@ import { Home } from "lucide-react";
 import Container from "@/components/shared/container";
 import AdditionalDescription from "@/components/shared/additional-description";
 import CitySection from "../_components/city-section";
-import CategoriesSection from "../../../(home)/_components/categories-section";
 import { DOMAIN } from "@/constants/domain";
 
-// Generate metadata dynamically with enhanced SEO
+// Lazy load CategoriesSection to reduce initial bundle size
+const CategoriesSection = dynamic(
+  () => import("../../../(home)/_components/categories-section"),
+  { ssr: true }
+);
+
+// Enable ISR with 1-hour revalidation for better performance
+export const revalidate = 3600; // Revalidate every 1 hour
+
+// Generate static params for popular cities at build time
+export async function generateStaticParams() {
+  // Pre-generate pages for the most popular cities
+  const popularCities = [
+    'dubai', 
+    'london', 
+    'barcelona', 
+    'istanbul', 
+    'vienna', 
+    'paris', 
+    'geneva',
+    'amsterdam',
+    'singapore',
+    'kuala-lumpur',
+    'amman'
+  ];
+
+  return popularCities.map((citySlug) => ({
+    citySlug,
+  }));
+}
+
+ // Generate metadata dynamically with enhanced SEO
 export async function generateMetadata({
   params,
 }: {
@@ -195,6 +226,10 @@ export default async function Page({
 
   return (
     <>
+      {/* Preconnect to API for faster resource loading */}
+      <link rel="preconnect" href="https://api.euroqst.com" />
+      <link rel="dns-prefetch" href="https://api.euroqst.com" />
+
       {/* Schema.org JSON-LD for City Page */}
       <script
         type="application/ld+json"

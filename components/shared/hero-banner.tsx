@@ -53,7 +53,8 @@ export default function HeroBanner({
         alt={imageAlt}
         fill
         priority={priority}
-        quality={85}
+        fetchPriority={priority ? "high" : "auto"}
+        quality={75}
         sizes="100vw"
         className="object-cover z-0"
         itemProp="image"

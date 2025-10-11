@@ -73,6 +73,10 @@ class ApiClient {
         method,
         headers,
         signal: config?.timeout ? AbortSignal.timeout(config.timeout) : undefined,
+        // Enable Next.js fetch caching for GET requests
+        ...(method === 'GET' && {
+          next: { revalidate: 3600 }, // Cache for 1 hour
+        }),
       };
 
       if (data && method !== 'GET') {
