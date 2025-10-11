@@ -14,11 +14,12 @@ export default function Footer() {
 
   return (
     <footer 
-      className="bg-[#2A3453] text-white/75 py-10"
+      className="bg-[#2A3453] text-white/75 py-10 min-h-[400px]"
       itemScope
       itemType="https://schema.org/Organization"
       role="contentinfo"
       aria-label="Site footer with contact information and navigation"
+      style={{ contentVisibility: 'auto' }}
     >
       {/* Hidden Schema.org data for SEO */}
       <meta itemProp="name" content="EuroQuest International Training" />

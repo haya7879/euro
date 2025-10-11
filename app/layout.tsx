@@ -14,6 +14,7 @@ const exo = Exo({
   display: "swap",
   preload: true,
   adjustFontFallback: true,
+  fallback: ['system-ui', 'Arial', 'sans-serif'],
 });
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -21,6 +22,7 @@ const cairo = Cairo({
   display: "swap",
   preload: true,
   adjustFontFallback: true,
+  fallback: ['system-ui', 'Arial', 'sans-serif'],
 });
 
 export const metadata: Metadata = {
@@ -122,6 +124,17 @@ export default function RootLayout({
           as="image"
           type="image/svg+xml"
         />
+        
+        {/* Preload critical CSS */}
+        <link 
+          rel="preload" 
+          href="/_next/static/css/app/layout.css" 
+          as="style"
+          type="text/css"
+        />
+        
+        {/* Resource hints for performance */}
+        <link rel="dns-prefetch" href="https://vercel.com" />
         
         <meta name="theme-color" content="#ffffff" />
         <meta name="mobile-web-app-capable" content="yes" />

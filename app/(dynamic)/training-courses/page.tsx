@@ -8,6 +8,10 @@ import Container from "@/components/shared/container";
 import Schema from "@/components/shared/schema";
 import { DOMAIN } from "@/constants/domain";
 
+// Enable ISR with revalidation for better performance
+export const revalidate = 3600; // Revalidate every hour
+export const dynamic = 'force-static'; // Generate static page
+export const dynamicParams = true;
 
 // Generate metadata dynamically for SEO optimization
 export async function generateMetadata(): Promise<Metadata> {
@@ -184,6 +188,15 @@ export default async function CategoriesPage({ searchParams }: CategoriesPagePro
 
   return (
     <>
+      {/* Preload critical hero image */}
+      <link
+        rel="preload"
+        href="/assets/images/hero-categories.webp"
+        as="image"
+        type="image/webp"
+        fetchPriority="high"
+      />
+
       {/* Schema.org JSON-LD for Categories Listing */}
       {categoryListSchema && (
         <script

@@ -8,13 +8,18 @@
 }
 
 body {
-  font-family: var(--font-exo), "Exo", sans-serif;
+  font-family: var(--font-exo), "Exo", system-ui, -apple-system, sans-serif;
   font-feature-settings: "kern" 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Performance optimizations */
   contain: layout style;
+  /* Prevent layout shifts */
+  min-height: 100vh;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  will-change: auto;
 }
 
 .font-cairo {
@@ -43,6 +48,22 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: break-word;
+}
+
+/* Performance optimizations for images and animations */
+img {
+  content-visibility: auto;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 ::placeholder {
