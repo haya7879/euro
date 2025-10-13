@@ -1,13 +1,11 @@
 stages:
-  - build
   - deploy
 
 variables:
   NODE_ENV: production
 
 before_script:
-  - which ssh-agent || (apt-get update -y && apt-get install openssh-client -y)
-  - apt-get update && apt-get install -y netcat-openbsd
+  - which ssh-agent || (apt-get update -y && apt-get install openssh-client -y git -y)
   - eval $(ssh-agent -s)
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
   - mkdir -p ~/.ssh
@@ -17,33 +15,21 @@ before_script:
   - ssh-keyscan -p 7822 -v $VPS_HOST >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
-build:
-  stage: build
-  image: node:18
-  script:
-    - npm install --include=dev
-    - npx tsc --noEmit
-    - npm run build
-  artifacts:
-    paths:
-      - .next
-      - public
-      - node_modules
-      - package.json
-
 deploy:
   stage: deploy
-  before_script:
-    - apt-get update && apt-get install -y rsync netcat-openbsd openssh-client
-    - eval $(ssh-agent -s)
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - echo "Testing VPS_HOST $VPS_HOST on port 7822"
-    - nc -zv $VPS_HOST 7822 || (echo "❌ SSH port 7822 unreachable" && exit 1)
-    - ssh-keyscan -p 7822 -v $VPS_HOST >> ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
   script:
-    - ssh -p 7822 $VPS_USER@$VPS_HOST "rm -rf $VPS_PATH/*"
-    - rsync -az --delete -e "ssh -p 7822" .next public node_modules package.json $VPS_USER@$VPS_HOST:$VPS_PATH
-    - ssh -p 7822 $VPS_USER@$VPS_HOST "cd $VPS_PATH && pm2 restart EuroQuest-Next || pm2 start npm --name EuroQuest-Next -- run start"
+    - ssh -p 7822 $VPS_USER@$VPS_HOST "
+        cd $VPS_PATH || mkdir -p $VPS_PATH;
+        git fetch --all;
+        git reset --hard origin/main;
+        git clean -fd;
+      "
+    - ssh -p 7822 $VPS_USER@$VPS_HOST "
+        cd $VPS_PATH;
+        npm install --include=dev;
+        npm run build;
+      "
+    - ssh -p 7822 $VPS_USER@$VPS_HOST "
+        cd $VPS_PATH;
+        pm2 restart EuroQuest-Next || pm2 start npm --name EuroQuest-Next -- run start;
+      "
