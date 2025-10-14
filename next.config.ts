@@ -74,7 +74,55 @@ const nextConfig: NextConfig = {
     },
   }),
   
-  // Headers for better SEO and security
+  // 🔁 Redirects for old URLs
+  async redirects() {
+    return [
+      // ✅ تحويل جميع الروابط الإنجليزية إلى الجذر
+      {
+        source: '/en/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en',
+        destination: '/',
+        permanent: true,
+      },
+
+      // ✅ تحويل جميع الروابط العربية إلى النطاق الفرعي
+      {
+        source: '/ar/:path*',
+        destination: 'https://ar.euroqst.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/ar',
+        destination: 'https://ar.euroqst.com',
+        permanent: true,
+      },
+
+      // ✅ تحويل صفحات التفاصيل القديمة إلى الجذر
+      {
+        source: '/category-detail/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/course-detail/:path*',
+        destination: '/',
+        permanent: true,
+      },
+
+      // ✅ تحويل صفحات الدورات القديمة
+      {
+        source: '/courses/:slug*',
+        destination: '/training-course/:slug*',
+        permanent: true,
+      },
+    ];
+  },
+  
+  // 🛡️ Headers for better SEO and security
   async headers() {
     return [
       {
