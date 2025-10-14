@@ -79,12 +79,12 @@ const nextConfig: NextConfig = {
     return [
       // ✅ تحويل جميع الروابط الإنجليزية إلى الجذر
       {
-        source: '/en/:path*',
+        source: '/:path*',
         destination: '/',
         permanent: true,
       },
       {
-        source: '/en',
+        source: '/',
         destination: '/',
         permanent: true,
       },
