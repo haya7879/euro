@@ -103,12 +103,12 @@ const nextConfig: NextConfig = {
 
       // ✅ تحويل صفحات التفاصيل القديمة إلى الجذر
       {
-        source: '/category-detail/:path*',
+        source: '/training-courses/:path*',
         destination: '/',
         permanent: true,
       },
       {
-        source: '/course-detail/:path*',
+        source: '/training-course/:path*',
         destination: '/',
         permanent: true,
       },
