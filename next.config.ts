@@ -74,17 +74,17 @@ const nextConfig: NextConfig = {
     },
   }),
   
-  // 🔁 Redirects for old URLs
+  // 🔁 التحويلات (Redirects) - حماية SEO من الروابط القديمة
   async redirects() {
     return [
       // ✅ تحويل جميع الروابط الإنجليزية إلى الجذر
       {
-        source: '/:path*',
+        source: '/en/:path*',
         destination: '/',
         permanent: true,
       },
       {
-        source: '/',
+        source: '/en',
         destination: '/',
         permanent: true,
       },
@@ -103,12 +103,12 @@ const nextConfig: NextConfig = {
 
       // ✅ تحويل صفحات التفاصيل القديمة إلى الجذر
       {
-        source: '/training-courses/:path*',
+        source: '/category-detail/:path*',
         destination: '/',
         permanent: true,
       },
       {
-        source: '/training-course/:path*',
+        source: '/course-detail/:path*',
         destination: '/',
         permanent: true,
       },
