@@ -9,28 +9,8 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   // Get the pathname
   const pathname = request.nextUrl.pathname;
-
-  // Handle legacy URL redirects
-  const legacyPatterns = [
-    '/en',
-    '/ar',
-    '/en/category-detail/',
-    '/en/course-detail/',
-    '/en/courses/',
-    '/ar/courses/',
-    '/ar/course-detail/',
-    '/ar/course-detail/',
-  ];
-
-  // Check if the current path matches any legacy pattern
-  const isLegacyUrl = legacyPatterns.some(pattern => pathname.startsWith(pattern));
   
-  if (isLegacyUrl) {
-    // Redirect to home page with 301 (permanent redirect)
-    return NextResponse.redirect(new URL('/', request.url), 301);
-  }
-
-  // Clone the response for non-redirect requests
+  // Clone the response
   const response = NextResponse.next();
 
   // Add security headers (complementary to next.config.ts)
@@ -67,7 +47,7 @@ export const config = {
      * - public folder
      * - api routes (they have their own security)
      */
-    '/((?!_next/static|_next/image|favicon.ico|assets|api).*)',
+    '/((?!_next/static|_next/image|favicon.ico|assets|api|robots.txt|sitemap).*)',
   ],
 };
 
