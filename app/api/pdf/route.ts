@@ -110,10 +110,12 @@ export async function POST(request: NextRequest) {
 function generateBrochureHTML(course: any, timing: any): string {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
+    // Use UTC to avoid timezone offset issues
     return date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
       day: "numeric",
+      timeZone: "UTC",
     });
   };
 
