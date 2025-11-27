@@ -29,6 +29,13 @@ body {
   font-family: var(--font-jost), "Jost", sans-serif !important;
 }
 
+.bg-coverage{
+  background-image: url("/assets/images/global-map2.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 /* Line clamp utility for text truncation */
 .line-clamp-2 {
   display: -webkit-box;

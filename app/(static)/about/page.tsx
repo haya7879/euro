@@ -14,6 +14,7 @@ import WhyEuroquest from "./_components/why-euroquest";
 import OurAchievements from "./_components/our-achievements";
 import OurClients from "./_components/our-clients";
 import OurValues from "./_components/our-values";
+import CoverageSection from "./_components/coverage-section";
 
 const breadcrumbs = [
   { label: "", href: "/", icon: <Home width={16} height={16} /> },
@@ -105,29 +106,7 @@ export default function AboutPage() {
           </div>
         </div>
       </Container>
-
-      {/* Coverage Section */}
-      {/* <section className="mt-10">
-        <div className="w-full">
-          <div className="relative w-full">
-            <img 
-              src="/assets/images/global-map2.png" 
-              alt="Map showing our global presence" 
-              className="w-full h-auto" 
-            />
-            <div className="absolute top-1/2 left-[15%] md:left-1/2 md:-translate-x-1/2 -translate-y-1/2 text-center flex flex-col justify-center items-center gap-3 w-full md:w-auto px-4">
-              <h2 className="font-semibold text-2xl md:text-4xl text-black">
-                Geographical <span className="text-[#3E5EC0]">Coverage</span>
-              </h2>
-              <p className="text-[#7C7B7B]">find our services in 25 cities around the world</p>
-              <Button className="max-w-[200px]">
-                See All
-                <i className="fa-solid fa-chevron-right ml-2"></i>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section> */}
+      <CoverageSection />
     </>
   );
 }
