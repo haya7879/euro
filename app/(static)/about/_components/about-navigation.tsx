@@ -61,7 +61,7 @@ export default function AboutNavigation() {
   };
 
   return (
-    <aside className="hidden xl:block w-full max-w-[280px] shrink-0">
+    <aside className="hidden xl:block w-full max-w-[250px] shrink-0">
       <div className="sticky top-24">
         <nav className="space-y-2">
           {sections.map((section) => (
@@ -69,14 +69,14 @@ export default function AboutNavigation() {
               key={section.id}
               href={`#${section.id}`}
               onClick={(e) => handleClick(e, section.id)}
-              className={`flex items-center gap-3 text-base font-semibold transition-all py-2.5 px-3 rounded-lg ${
+              className={`flex items-center gap-2 text-sm font-semibold transition-all py-2.5 px-3 rounded-lg ${
                 activeSection === section.id
                   ? "text-[#3E5EC0] bg-[#3E5EC0]/5"
                   : "text-gray-800 hover:text-[#3E5EC0] hover:bg-gray-50"
               }`}
             >
               <span
-                className={`text-xl transition-colors ${
+                className={`text-sm transition-colors ${
                   activeSection === section.id
                     ? "text-[#00B67A]"
                     : "text-[#00B67A]"

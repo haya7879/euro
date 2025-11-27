@@ -13,7 +13,7 @@ export default function SectionTitle({
 }: SectionTitleProps) {
   return (
     <div className={`${className}`}>
-      <h2 className="text-2xl md:text-4xl font-bold flex flex-row items-start md:items-center gap-1 md:gap-2">
+      <h2 className="text-2xl md:text-3xl font-bold flex flex-row items-start md:items-center gap-1 md:gap-2">
         <span className="text-black">{title}</span>
         <div className="relative inline-block">
           <span className="text-[#3E5EC0] relative">{highlight}</span>
