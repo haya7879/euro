@@ -8,7 +8,7 @@
   --font-cairo: 'Cairo', sans-serif;
   --font-jost: 'Jost', sans-serif;
 }
-
+/* ///////// */
 html {
   scroll-behavior: smooth;
 }
