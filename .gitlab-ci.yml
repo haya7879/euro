@@ -12,24 +12,24 @@ before_script:
   - chmod 700 ~/.ssh
   - echo "Testing VPS_HOST $VPS_HOST on port 22"
   # - nc -zv $VPS_HOST 7822 || (echo "❌ SSH port 7822 unreachable" && exit 1)
-  - ssh-keyscan -p 7822 -v $VPS_HOST >> ~/.ssh/known_hosts
+  - ssh-keyscan -p 22 -v $VPS_HOST >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
 deploy:
   stage: deploy
   script:
-    - ssh -p 7822 $VPS_USER@$VPS_HOST "
+    - ssh -p 22 $VPS_USER@$VPS_HOST "
         cd $VPS_PATH || mkdir -p $VPS_PATH;
         git fetch --all;
         git reset --hard origin/master;
         git clean -fd;
       "
-    - ssh -p 7822 $VPS_USER@$VPS_HOST "
+    - ssh -p 22 $VPS_USER@$VPS_HOST "
         cd $VPS_PATH;
         npm install --include=dev;
         npm run build;
       "
-    - ssh -p 7822 $VPS_USER@$VPS_HOST "
+    - ssh -p 22 $VPS_USER@$VPS_HOST "
         cd $VPS_PATH;
         pm2 restart EuroQuest-Next || pm2 start npm --name EuroQuest-Next -- run start;
       "
