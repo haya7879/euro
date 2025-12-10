@@ -492,6 +492,7 @@ export default function RegisterPopup() {
                   onExpire={handleRecaptchaExpire}
                   theme="light"
                   size="normal"
+                  action={RECAPTCHA_CONFIG.actions.register}
                 />
               </div>
             </form>

@@ -14,7 +14,7 @@ export default function VissionMission() {
                 className="w-full h-full"
               />
             </div>
-            <div className="text-center sm:text-left">
+            <div className="text-center sm:text-start">
               <h3 className="mb-1 text-xl md:text-2xl font-bold capitalize">
                 Our <span className="text-[#3E5EC0]">vision</span>
               </h3>

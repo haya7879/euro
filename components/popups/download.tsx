@@ -131,13 +131,13 @@ export default function DownloadPopup() {
   };
 
   const handleRecaptchaError = (error: any) => {
-    console.error("reCAPTCHA error:", error);
+    // Only log error in development mode
+    if (process.env.NODE_ENV === 'development') {
+      console.error('reCAPTCHA error:', error);
+    }
     setRecaptchaVerified(false);
     setRecaptchaToken(null);
-    showErrorAlert(
-      "Error!",
-      "reCAPTCHA verification failed. Please try again."
-    );
+    // Don't show error toast for reCAPTCHA errors to avoid user confusion
   };
 
   const handleRecaptchaExpire = () => {
@@ -478,6 +478,7 @@ export default function DownloadPopup() {
                     onExpire={handleRecaptchaExpire}
                     theme="light"
                     size="normal"
+                    action={RECAPTCHA_CONFIG.actions.download}
                   />
                 </div>
               </form>

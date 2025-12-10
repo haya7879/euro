@@ -474,6 +474,7 @@ export default function ContactPopup() {
                       onExpire={handleRecaptchaExpire}
                       theme="light"
                       size="normal"
+                      action={RECAPTCHA_CONFIG.actions.contact}
                     />
                   </div>
                 </form>

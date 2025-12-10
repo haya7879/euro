@@ -11,6 +11,7 @@ interface ReCaptchaV2Props {
   className?: string
   theme?: 'light' | 'dark'
   size?: 'compact' | 'normal' | 'invisible'
+  action?: string
 }
 
 export default function ReCaptchaV2({ 
@@ -19,7 +20,8 @@ export default function ReCaptchaV2({
   onExpire,
   className = '',
   theme = 'light',
-  size = 'normal'
+  size = 'normal',
+  action
 }: ReCaptchaV2Props) {
   const recaptchaRef = useRef<ReCAPTCHA>(null)
 
@@ -67,8 +69,7 @@ export default function ReCaptchaV2({
     <div className={`recaptcha-v2-container ${className}`}>
       <ReCAPTCHA
         ref={recaptchaRef}
-        sitekey="6LezvtMrAAAAAD6czyI91m_cAMcGYZtQp4BN8hGW"
-        // sitekey="6LeMxdMrAAAAALts50DURorRFtZwdISrVIbSg-8b"
+        sitekey={RECAPTCHA_CONFIG.siteKey}
         onChange={handleVerify}
         onExpired={handleExpire}
         onErrored={handleError}

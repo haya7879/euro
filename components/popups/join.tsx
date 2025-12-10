@@ -512,6 +512,7 @@ export default function JoinPopup() {
                       onExpire={handleRecaptchaExpire}
                       theme="light"
                       size="normal"
+                      action={RECAPTCHA_CONFIG.actions.join}
                     />
                   </div>
                 </form>

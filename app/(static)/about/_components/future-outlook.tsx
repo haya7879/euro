@@ -24,7 +24,7 @@ export default function FutureOutlook() {
 
             {/* Right Side - Goals */}
             <div className="w-full lg:w-1/2 flex flex-col gap-4 md:gap-6">
-              <h3 className="text-xl md:text-2xl font-bold text-black text-center lg:text-left">
+              <h3 className="text-xl md:text-2xl font-bold text-black text-center lg:text-start">
                 We Aim To Expand Globally By:
               </h3>
 

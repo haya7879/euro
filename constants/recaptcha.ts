@@ -1,9 +1,13 @@
 // Get reCAPTCHA keys from: https://www.google.com/recaptcha/admin
 
 export const RECAPTCHA_CONFIG = {
+  // localhost keys
+  // siteKey: "6LeCxdMrAAAAAG7HUFwS_jOHrS38Sfn8xB5gd6-H",
+  // secretKey: "6LeCxdMrAAAAAOQ0YVPHF_rNNfINyH9SkNvYcttz",
+
+  // production keys
   siteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
-  secretKey: process.env.RECAPTCHA_SECRET_KEY || '',
-  // Default actions for different forms
+  secretKey: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY || '',
   actions: {
     contact: 'contact_form',
     join: 'join_form',
