@@ -15,7 +15,7 @@ export default function OurValues() {
           {/* Values Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Quality */}
-            <div className="col-span-1 md:col-span-2 border border-[#C5C5C5] rounded-xl p-4">
+            <div className="border border-[#C5C5C5] rounded-xl p-4">
               <div className="flex items-center gap-2 md:gap-3 mb-4">
                 <div className="w-8 h-8 flex items-center justify-center">
                   <img src="/assets/icons/value-icon1.svg" alt="" />
@@ -30,7 +30,7 @@ export default function OurValues() {
             </div>
 
             {/* Professionalism */}
-            <div className="col-span-1 border border-[#C5C5C5] rounded-xl p-4">
+            <div className="border border-[#C5C5C5] rounded-xl p-4">
               <div className="flex items-center gap-2 md:gap-3 mb-4">
                 <div className="w-8 h-8 flex items-center justify-center">
                   <img src="/assets/icons/value-icon2.svg" alt="" />
@@ -48,7 +48,7 @@ export default function OurValues() {
             </div>
 
             {/* Transparency */}
-            <div className="col-span-1 border border-[#C5C5C5] rounded-xl p-4">
+            <div className="border border-[#C5C5C5] rounded-xl p-4">
               <div className="flex items-center gap-2 md:gap-3 mb-4">
                 <div className="w-8 h-8 flex items-center justify-center">
                   <img src="/assets/icons/value-icon3.svg" alt="" />
@@ -66,7 +66,7 @@ export default function OurValues() {
             </div>
 
             {/* Continuous Innovation */}
-            <div className="col-span-1 md:col-span-2 border border-[#C5C5C5] rounded-xl p-4">
+            <div className="border border-[#C5C5C5] rounded-xl p-4">
               <div className="flex items-center gap-2 md:gap-3 mb-4">
                 <div className="w-8 h-8 flex items-center justify-center">
                   <img src="/assets/icons/value-icon4.svg" alt="" />
@@ -84,7 +84,7 @@ export default function OurValues() {
             </div>
 
             {/* Results-Oriented Approach */}
-            <div className="col-span-1 md:col-span-2 border border-[#C5C5C5] rounded-xl p-4">
+            <div className="border border-[#C5C5C5] rounded-xl p-4">
               <div className="flex items-center gap-2 md:gap-3 mb-4">
                 <div className="w-8 h-8 flex items-center justify-center">
                   <img src="/assets/icons/value-icon5.svg" alt="" />
@@ -102,7 +102,7 @@ export default function OurValues() {
             </div>
 
             {/* Integrity */}
-            <div className="col-span-1 border border-[#C5C5C5] rounded-xl p-4">
+            <div className="border border-[#C5C5C5] rounded-xl p-4">
               <div className="flex items-center gap-2 md:gap-3 mb-4">
                 <div className="w-8 h-8 flex items-center justify-center">
                   <img src="/assets/icons/value-icon6.svg" alt="" />
