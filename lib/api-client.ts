@@ -15,7 +15,7 @@ class ApiClient {
   private baseURL: string;
   private defaultHeaders: Record<string, string>;
   
-  constructor(baseURL: string = "https://api.euroqst.com/api") {
+  constructor(baseURL: string = process.env.NEXT_PUBLIC_API_URL || '') {
     this.baseURL = baseURL.endsWith('/') ? baseURL.slice(0, -1) : baseURL;
     this.defaultHeaders = {
       'Content-Type': 'application/json',
