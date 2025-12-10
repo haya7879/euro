@@ -22,7 +22,6 @@ class ApiClient {
     };
   }
 
-  // Set authentication token
   setAuthToken(token: string) {
     this.defaultHeaders['Authorization'] = `Bearer ${token}`;
   }
