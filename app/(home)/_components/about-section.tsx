@@ -25,7 +25,7 @@ export default function AboutSection({ className = "" }: AboutSectionProps) {
           <div className="w-full lg:w-1/2 space-y-6">
             {/* Section Header */}
             <div className="mb-6">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 leading-tight">
                 About <span className="text-[#3E5EC0]">Us</span>
               </h2>
             </div>
