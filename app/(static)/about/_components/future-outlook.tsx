@@ -9,7 +9,7 @@ export default function FutureOutlook() {
     >
       <div className="flex flex-col gap-12 relative z-10">
         <div className="w-full">
-          <SectionTitle title="Future" highlight="Outlook" className="!mb-6" />
+          <SectionTitle title="Future Outlook" highlight="" className="!mb-6" />
 
           {/* Future Outlook Content */}
           <div className="border border-gray-200 rounded-xl md:p-4 p-2 flex flex-col lg:flex-row gap-6">

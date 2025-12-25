@@ -9,8 +9,8 @@ export default function AboutSection() {
       <div className="flex flex-col gap-12 relative z-10">
         <div className="w-full">
           <SectionTitle
-            title="Who is"
-            highlight="EuroQuest"
+            title="Who is EuroQuest"
+            highlight=""
             className="!mb-4"
           />
           <p className="font-normal text-sm md:text-base leading-7">

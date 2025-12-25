@@ -6,7 +6,7 @@ export default function OurClients() {
     <section id="our-clients" className="bg-white md:py-10 py-6 scroll-mt-24">
       <div className="flex flex-col gap-12 relative z-10">
         <div className="w-full">
-          <SectionTitle title="Our" highlight="Clients" className="!mb-6" />
+          <SectionTitle title="Our Clients" highlight="" className="!mb-6" />
 
           {/* Clients Content */}
           <div className="border border-gray-200 rounded-xl md:p-4 p-2 flex flex-col lg:flex-row gap-6">

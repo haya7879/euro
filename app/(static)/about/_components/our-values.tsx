@@ -6,7 +6,7 @@ export default function OurValues() {
     <section id="our-values" className="bg-white md:py-10 py-6 scroll-mt-24">
       <div className="flex flex-col gap-12 relative z-10">
         <div className="w-full">
-          <SectionTitle title="Our" highlight="Values" className="!mb-6" />
+          <SectionTitle title="Our Values" highlight="" className="!mb-6" />
           {/* Values Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Quality */}
