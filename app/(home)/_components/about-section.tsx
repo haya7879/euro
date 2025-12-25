@@ -12,15 +12,6 @@ export default function AboutSection({ className = "" }: AboutSectionProps) {
       <Container>
         {/* Main Content Section */}
         <div className="flex items-center justify-between lg:flex-row flex-col gap-8 lg:gap-10 mb-10">
-          {/* Image Section - Left */}
-          <div className="relative lg:w-1/2 flex items-center justify-center">
-            <img
-              src="/assets/images/about-section.png"
-              alt="Team collaboration"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-
           {/* Content Section - Right */}
           <div className="w-full lg:w-1/2 space-y-4">
             {/* Section Header */}
@@ -63,6 +54,14 @@ export default function AboutSection({ className = "" }: AboutSectionProps) {
               <span>Show More</span>
               <ChevronRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
+          </div>
+          {/* Image Section - Left */}
+          <div className="relative lg:w-1/2 flex items-center justify-center">
+            <img
+              src="/assets/images/about-section.png"
+              alt="Team collaboration"
+              className="w-full h-auto object-cover"
+            />
           </div>
         </div>
 
