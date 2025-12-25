@@ -13,7 +13,7 @@ export default function AboutSection({ className = "" }: AboutSectionProps) {
         {/* Main Content Section */}
         <div className="flex items-center justify-between lg:flex-row flex-col gap-8 lg:gap-10 mb-10">
           {/* Content Section - Right */}
-          <div className="w-full lg:max-w-[470px] space-y-4">
+          <div className="w-full lg:w-1/2 space-y-4">
             {/* Section Header */}
             <div className="mb-4">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
@@ -56,7 +56,7 @@ export default function AboutSection({ className = "" }: AboutSectionProps) {
             </Link>
           </div>
           {/* Image Section - Left */}
-          <div className="relative lg:w-1/2 flex items-center justify-center">
+          <div className="relative lg:max-w-[470px] flex items-center justify-center">
             <img
               src="/assets/images/about-section.png"
               alt="Team collaboration"
