@@ -1,9 +1,9 @@
-import { DOMAIN } from '@/constants/domain'
+import { DOMAIN, API_URL } from '@/constants/domain'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
   const baseUrl = DOMAIN
-  const apiUrl = 'https://api.euroqst.com/api'
+  const apiUrl = API_URL
   
   try {
     // Fetch categories from API

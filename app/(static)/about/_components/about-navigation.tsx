@@ -8,9 +8,9 @@ const sections = [
   { id: "our-mission", label: "Our Mission" },
   { id: "our-values", label: "Our Values" },
   { id: "our-clients", label: "Our Clients" },
-  { id: "our-achievements", label: "Our Achievements" },
-  { id: "why-euroquest", label: "Why EuroQuest International?" },
-  { id: "our-impact", label: "Our Impact" },
+  // { id: "our-achievements", label: "Our Achievements" },
+  { id: "why-euroquest", label: "Why EuroQuest?" },
+  // { id: "our-impact", label: "Our Impact" },
   { id: "future-outlook", label: "Future Outlook" },
 ];
 
@@ -61,7 +61,7 @@ export default function AboutNavigation() {
   };
 
   return (
-    <aside className="hidden xl:block w-full max-w-[250px] shrink-0">
+    <aside className="hidden xl:block w-full max-w-[180px] shrink-0">
       <div className="sticky top-24">
         <nav className="space-y-2">
           {sections.map((section) => (

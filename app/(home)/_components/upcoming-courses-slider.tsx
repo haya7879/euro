@@ -61,7 +61,7 @@ export default function UpcomingCoursesSlider({ upcomingCourses }: UpcomingCours
   }, [upcomingCourses, isClient]);
 
   return (
-    <div className="courses-slider relative pb-4">
+    <div className="courses-slider relative">
       {/* Swiper Container */}
       <div className={`courses-swiper overflow-hidden ${!isClient ? "opacity-0" : "opacity-100"}`}>
         <div className="swiper-wrapper">

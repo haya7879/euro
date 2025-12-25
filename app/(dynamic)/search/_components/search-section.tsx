@@ -69,12 +69,12 @@ export default function SearchSection() {
 
       <div className="container mx-auto pb-13">
         {/* Search Summary */}
-        <SearchSummary
+        {/* <SearchSummary
           totalCount={totalCount}
           resultType={resultType}
           appliedFilters={appliedFilters}
           cacheStatus={cacheStatus}
-        />
+        /> */}
 
         {/* Loading State */}
         {loading && (

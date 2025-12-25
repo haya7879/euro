@@ -1,6 +1,10 @@
 import { generateDynamicMonths } from "@/functions";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
-
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaXTwitter,
+} from "react-icons/fa6";
 
 export const months = generateDynamicMonths();
 export const popularCategories = [
@@ -42,9 +46,12 @@ export const quickAccessLinks = [
 ];
 
 export const socialLinks = [
-  { href: "https://www.facebook.com/euroquest.international", Icon: FaFacebookF },
+  {
+    href: "https://www.facebook.com/euroquest.international",
+    Icon: FaFacebookF,
+  },
   { href: "#", Icon: FaInstagram },
-  { href: "#", Icon: FaXTwitter  },
+  { href: "#", Icon: FaXTwitter },
   { href: "#", Icon: FaLinkedinIn },
 ];
 
@@ -57,28 +64,31 @@ export const durationOptions = [
 
 // API Endpoints
 export const API_ENDPOINTS = {
-  CATEGORIES: '/training-courses',
-  COURSES: '/courses',
-  CITIES: '/training-cities',
-  UPCOMING_COURSES: '/get-upcoming-courses',
-  BLOGS: '/blogs',
-  SITEMAP: '/sitemap',
+  CATEGORIES: "/training-courses",
+  COURSES: "/courses",
+  CITIES: "/training-cities",
+  UPCOMING_COURSES: "/get-upcoming-courses",
+  BLOGS: "/blogs",
+  SITEMAP: "/sitemap",
 } as const;
 
 export const services = [
   {
     icon: "https://euroqst.com/assets/images/service-icon3.svg",
     title: "In-house Courses",
-    description: "EuroQuest International offers offer customized training courses within the organization."
+    description:
+      "EuroQuest International offers offer customized training courses within the organization.",
   },
   {
     icon: "https://euroqst.com/assets/images/service-icon2.svg",
-    title: "Classroom Courses", 
-    description: "EuroQuest International offer training courses held in carefully selected locations in cities and capitals worldwide"
+    title: "Classroom Courses",
+    description:
+      "EuroQuest International offer training courses held in carefully selected locations in cities and capitals worldwide",
   },
   {
     icon: "https://euroqst.com/assets/images/service-icon1.svg",
     title: "Online Courses",
-    description: "EuroQuest International offers offer flexible training courses delivered remotely."
-  }
+    description:
+      "EuroQuest International offers offer flexible training courses delivered remotely.",
+  },
 ];

@@ -212,6 +212,7 @@ declare interface SearchTiming {
   category_id: number;
   category_title: string;
   city_title: string;
+  city_slug?: string;
 }
 
 declare interface SearchCourse {

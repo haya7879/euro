@@ -5,11 +5,11 @@ export default function FutureOutlook() {
   return (
     <section
       id="future-outlook"
-      className="bg-white md:py-11 py-8 scroll-mt-24"
+      className="bg-white md:py-10 py-6 scroll-mt-24"
     >
       <div className="flex flex-col gap-12 relative z-10">
         <div className="w-full">
-          <SectionTitle title="Future" highlight="Outlook" className="!mb-8" />
+          <SectionTitle title="Future" highlight="Outlook" className="!mb-6" />
 
           {/* Future Outlook Content */}
           <div className="border border-gray-200 rounded-xl md:p-4 p-2 flex flex-col lg:flex-row gap-6">

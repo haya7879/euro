@@ -2,11 +2,8 @@ import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { 
   getCategories, 
   getCategoryBySlug, 
-  searchCategories, 
   getCategoryDetails,
   getCities,
-  getCityBySlug,
-  searchCities,
   getCityDetails,
   getCourseDetails,
   getCityCourseDetails,
@@ -64,21 +61,6 @@ export const useCategory = (slug: string): UseQueryResult<Category | null, Error
   });
 };
 
-// Hook to search categories
-export const useSearchCategories = (
-  searchTerm: string, 
-  enabled: boolean = true
-): UseQueryResult<Category[], Error> => {
-  return useQuery({
-    queryKey: QUERY_KEYS.SEARCH_CATEGORIES(searchTerm),
-    queryFn: () => searchCategories(searchTerm),
-    enabled: enabled && searchTerm.length > 0, // Only search if term is provided and enabled
-    staleTime: 2 * 60 * 1000, // 2 minutes (shorter for search results)
-    gcTime: 5 * 60 * 1000, // 5 minutes
-    retry: 2,
-  });
-};
-
 // Hook for categories with additional options
 export const useCategoriesWithOptions = (options?: {
   refetchOnWindowFocus?: boolean;
@@ -117,33 +99,6 @@ export const useCities = (): UseQueryResult<City[], Error> => {
     gcTime: 10 * 60 * 1000, // 10 minutes (previously cacheTime)
     retry: 3,
     retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
-  });
-};
-
-// Hook to fetch a single city by slug
-export const useCity = (slug: string): UseQueryResult<City | null, Error> => {
-  return useQuery({
-    queryKey: QUERY_KEYS.CITY(slug),
-    queryFn: () => getCityBySlug(slug),
-    enabled: !!slug, // Only run query if slug is provided
-    staleTime: 5 * 60 * 1000, // 5 minutes
-    gcTime: 10 * 60 * 1000, // 10 minutes
-    retry: 3,
-  });
-};
-
-// Hook to search cities
-export const useSearchCities = (
-  searchTerm: string, 
-  enabled: boolean = true
-): UseQueryResult<City[], Error> => {
-  return useQuery({
-    queryKey: QUERY_KEYS.SEARCH_CITIES(searchTerm),
-    queryFn: () => searchCities(searchTerm),
-    enabled: enabled && searchTerm.length > 0, // Only search if term is provided and enabled
-    staleTime: 2 * 60 * 1000, // 2 minutes (shorter for search results)
-    gcTime: 5 * 60 * 1000, // 5 minutes
-    retry: 2,
   });
 };
 

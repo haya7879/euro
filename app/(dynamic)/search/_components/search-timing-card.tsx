@@ -14,14 +14,14 @@ export default function SearchTimingCard({
   const { openRegister, openInquire, openDownload } = usePopupStore();
   return (
     <Link
-      href={`/training-course/${timing.course_slug}`}
+    href={`/training-course/${timing.course_slug}/${timing.city_slug}`}
       className="bg-white rounded-xl border border-gray-200 shadow-[1px_1px_17px_0_rgba(62,94,192,0.22)] transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden relative group h-max"
     >
       {/* Hover Effect Line */}
       <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#314EA9] to-[#446AE1] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       {/* Card Content */}
-      <div className="bg-gradient-to-br from-[#f8faff] to-[#f0f4ff] p-4">
+      <div className="bg-gradient-to-br from-[#f8faff] to-[#f0f4ff] p-3">
         {/* Course Title */}
         <div className="mb-4">
           <h3
@@ -52,7 +52,7 @@ export default function SearchTimingCard({
             <span className="label text-xs whitespace-nowrap text-gray-600 font-medium">
               From:
             </span>
-            <span className="value text-[11px] whitespace-nowrap text-[#253a7b] font-semibold">
+            <span className="value text-xs whitespace-nowrap text-[#253a7b] font-semibold">
               {formatDate(timing.start_date)}
             </span>
           </div>
@@ -60,7 +60,7 @@ export default function SearchTimingCard({
             <span className="label text-xs whitespace-nowrap text-gray-600 font-medium">
               To:
             </span>
-            <span className="value text-[11px] whitespace-nowrap text-[#253a7b] font-semibold">
+            <span className="value text-xs whitespace-nowrap text-[#253a7b] font-semibold">
               {formatDate(timing.end_date)}
             </span>
           </div>

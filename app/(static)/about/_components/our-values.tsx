@@ -3,15 +3,10 @@ import React from "react";
 
 export default function OurValues() {
   return (
-    <section id="our-values" className="bg-white md:py-11 py-8 scroll-mt-24">
+    <section id="our-values" className="bg-white md:py-10 py-6 scroll-mt-24">
       <div className="flex flex-col gap-12 relative z-10">
         <div className="w-full">
-          <SectionTitle title="Our" highlight="Values" className="!mb-4" />
-          <p className="font-normal text-sm md:text-base text-gray-700 mb-8">
-            AT EuroQuest, Our Values Guide Everything We Do.The Shape Our
-            Interactions, Decisions, And The Way We Build Our Programs.
-          </p>
-
+          <SectionTitle title="Our" highlight="Values" className="!mb-6" />
           {/* Values Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Quality */}

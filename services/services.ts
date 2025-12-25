@@ -56,21 +56,6 @@ export const getCategoryBySlug = async (
   }
 };
 
-// Service to search categories by title
-export const searchCategories = async (
-  searchTerm: string
-): Promise<Category[]> => {
-  try {
-    const categories = await getCategories();
-    return categories.filter((category) =>
-      category.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  } catch (error) {
-    console.error("Error searching categories:", error);
-    throw error;
-  }
-};
-
 // Service to fetch category details with courses
 export const getCategoryDetails = async (
   slug: string
@@ -131,30 +116,6 @@ export const getCities = async (): Promise<City[]> => {
   }
 };
 
-// Service to fetch a single city by slug
-export const getCityBySlug = async (slug: string): Promise<City | null> => {
-  try {
-    const cities = await getCities();
-    const city = cities.find((city) => city.slug === slug);
-    return city || null;
-  } catch (error) {
-    console.error(`Error fetching city with slug ${slug}:`, error);
-    throw error;
-  }
-};
-
-// Service to search cities by title
-export const searchCities = async (searchTerm: string): Promise<City[]> => {
-  try {
-    const cities = await getCities();
-    return cities.filter((city) =>
-      city.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  } catch (error) {
-    console.error("Error searching cities:", error);
-    throw error;
-  }
-};
 
 // Service to fetch city details with courses
 export const getCityDetails = async (

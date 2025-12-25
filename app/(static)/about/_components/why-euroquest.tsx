@@ -1,11 +1,12 @@
+import Container from "@/components/shared/container";
 import React from "react";
 
 export default function WhyEuroquest() {
   return (
-    <section id="why-euroquest" className="bg-white md:py-11 py-8 scroll-mt-24">
+    <section id="why-euroquest" className="bg-white md:py-10 py-6 scroll-mt-24">
       <div className="flex flex-col gap-12 relative z-10">
         <div className="w-full">
-          <div className="flex flex-col lg:flex-row gap-6 items-center lg:items-start">
+          <div className="flex flex-col lg:flex-row md:gap-6 gap-4 items-center lg:items-start">
             {/* Left Side - Question Mark Icon */}
             <div className="w-full max-w-[200px] flex items-start justify-center lg:justify-start">
               <div className="relative">
@@ -36,6 +37,48 @@ export default function WhyEuroquest() {
               </p>
             </div>
           </div>
+          <section className="bg-[#F8FBFF] md:py-11 py-8 mt-4">
+            <Container className="flex flex-col gap-14 relative z-10">
+              <div className="w-full">
+                {/* <SectionTitle title="Our" highlight="Impact" className="!mb-8" /> */}
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="flex flex-col items-center text-center gap-3">
+                    <img
+                      src="/assets/icons/check.svg"
+                      alt=""
+                      className="w-12 h-12"
+                    />
+                    <h3 className="text-base font-semibold text-black mb-2">
+                      Organizations Improve Workforce Efficiency
+                    </h3>
+                  </div>
+
+                  <div className="flex flex-col items-center text-center gap-3">
+                    <img
+                      src="/assets/icons/check.svg"
+                      alt=""
+                      className="w-12 h-12"
+                    />
+                    <h3 className="text-base font-semibold text-black mb-2">
+                      Professionals Gain Skills For Career Advancement
+                    </h3>
+                  </div>
+
+                  <div className="flex flex-col items-center text-center gap-3">
+                    <img
+                      src="/assets/icons/check.svg"
+                      alt=""
+                      className="w-12 h-12"
+                    />
+                    <h3 className="text-base font-semibold text-black mb-2">
+                      Teams Achieve Better Collaboration And Results
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </Container>
+          </section>
         </div>
       </div>
     </section>

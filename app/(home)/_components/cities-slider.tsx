@@ -69,7 +69,7 @@ export default function CitiesSlider({ cities }: CitiesSliderProps) {
   }, [cities, isClient]);
 
   return (
-    <div className="cities-slider relative pb-4">
+    <div className="cities-slider relative">
       {/* Swiper Container */}
       <div className={`cities-swiper overflow-hidden ${!isClient ? "opacity-0" : "opacity-100"}`}>
         <div className="swiper-wrapper">

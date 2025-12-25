@@ -96,14 +96,14 @@ export default function AboutPage() {
             <VissionMission />
             <OurValues />
             <OurClients />
-            <OurAchievements />
+            {/* <OurAchievements /> */}
             <WhyEuroquest />
-            <OurImpact />
+            {/* <OurImpact /> */}
             <FutureOutlook />
           </div>
         </div>
       </Container>
-      <CoverageSection />
+      {/* <CoverageSection /> */}
     </>
   );
 }

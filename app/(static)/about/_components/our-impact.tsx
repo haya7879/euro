@@ -10,7 +10,7 @@ export default function OurImpact() {
     >
       <Container className="flex flex-col gap-14 relative z-10">
         <div className="w-full">
-          <SectionTitle title="Our" highlight="Impact" className="!mb-8" />
+          {/* <SectionTitle title="Our" highlight="Impact" className="!mb-8" /> */}
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center gap-3">

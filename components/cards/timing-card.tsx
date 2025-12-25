@@ -60,7 +60,7 @@ export default function TimingCard({
               <span className="label text-xs whitespace-nowrap text-gray-600 font-medium">
                 From:
               </span>
-              <span className="value text-[11px] whitespace-nowrap text-[#253a7b] font-semibold">
+              <span className="value text-xs whitespace-nowrap text-[#253a7b] font-semibold">
                 {formatDate?.(timing.start_date)}
               </span>
             </div>
@@ -68,7 +68,7 @@ export default function TimingCard({
               <span className="label text-xs whitespace-nowrap text-gray-600 font-medium">
                 To:
               </span>
-              <span className="value text-[11px] whitespace-nowrap text-[#253a7b] font-semibold">
+              <span className="value text-xs whitespace-nowrap text-[#253a7b] font-semibold">
                 {formatDate?.(timing.end_date)}
               </span>
             </div>
