@@ -1,12 +1,22 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { XIcon, MailIcon, PhoneIcon, MapPinIcon, UploadIcon, ChevronRightIcon } from "lucide-react";
+import {
+  XIcon,
+  MailIcon,
+  PhoneIcon,
+  MapPinIcon,
+  UploadIcon,
+  ChevronRightIcon,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import PhoneInput from "@/components/ui/phone-input";
 import { useJoinForm } from "@/services/forms/forms-hooks";
 import ReCaptchaV2 from "@/components/ui/recaptcha-v2";
-import { RECAPTCHA_CONFIG, validateRecaptchaConfig } from "@/constants/recaptcha";
+import {
+  RECAPTCHA_CONFIG,
+  validateRecaptchaConfig,
+} from "@/constants/recaptcha";
 import { usePopupStore } from "@/store/popup-store";
 import { useAlert } from "@/hooks/useAlert";
 
@@ -36,7 +46,9 @@ export default function JoinPopup() {
   });
 
   const [fileName, setFileName] = useState("Choose File");
-  const [errors, setErrors] = useState<Partial<Record<keyof JoinFormData, string>>>({});
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof JoinFormData, string>>
+  >({});
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [recaptchaVerified, setRecaptchaVerified] = useState(false);
   const [isPhoneValid, setIsPhoneValid] = useState(false);
@@ -136,8 +148,8 @@ export default function JoinPopup() {
 
   const handleRecaptchaError = (error: any) => {
     // Only log error in development mode
-    if (process.env.NODE_ENV === 'development') {
-      console.error('reCAPTCHA error:', error);
+    if (process.env.NODE_ENV === "development") {
+      console.error("reCAPTCHA error:", error);
     }
     setRecaptchaVerified(false);
     setRecaptchaToken(null);
@@ -157,7 +169,7 @@ export default function JoinPopup() {
       showErrorAlert("Error!", "Please upload your CV");
       return;
     }
-    
+
     // Check reCAPTCHA only if it's configured
     if (isRecaptchaConfigured && !recaptchaVerified) {
       showErrorAlert("Error!", "Please complete the reCAPTCHA verification");
@@ -174,7 +186,8 @@ export default function JoinPopup() {
       cv: formData.cv,
       speciality: formData.speciality,
       message: formData.message,
-      ...(isRecaptchaConfigured && recaptchaToken && { recaptcha_token: recaptchaToken }),
+      ...(isRecaptchaConfigured &&
+        recaptchaToken && { recaptcha_token: recaptchaToken }),
     };
 
     try {
@@ -238,7 +251,7 @@ export default function JoinPopup() {
             className="hidden lg:flex lg:w-[280px] bg-cover bg-center text-white p-4 rounded-lg flex-col justify-between min-h-[250px] gap-6 lg:rounded-l-2xl lg:rounded-r-none lg:min-h-auto"
             style={{ backgroundImage: "url('/assets/images/forms-bg.png')" }}
           >
-    <div>
+            <div>
               <h2 className="text-3xl font-black mb-2.5 max-md:text-2xl">
                 Join us
               </h2>
@@ -496,11 +509,17 @@ export default function JoinPopup() {
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      disabled={!recaptchaVerified || joinMutation.isPending || !isPhoneValid}
-                      className="submit-btn min-w-[170px] w-fit h-12 rounded-[10px] px-[18px] text-sm font-semibold text-white bg-gradient-to-r from-[#314EA9] to-[#446AE1] border-none cursor-pointer flex items-center justify-center gap-2 ml-0 transition-all duration-500 ease-in-out hover:[&_svg]:translate-x-0.5 disabled:opacity-50 disabled:cursor-not-allowed max-md:w-full max-md:min-w-auto max-md:h-11 max-md:text-[13px]"
+                      disabled={
+                        !recaptchaVerified ||
+                        joinMutation.isPending ||
+                        !isPhoneValid
+                      }
+                      className="min-w-[170px] w-fit h-11 rounded-md px-2 text-sm font-semibold text-white bg-gradient-to-r from-[#314EA9] to-[#446AE1] border-none cursor-pointer flex items-center justify-center gap-2 ml-0 transition-all duration-500 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed max-md:w-full max-md:min-w-auto max-md:text-xs"
                     >
                       <span className="btn-text">
-                        {joinMutation.isPending ? "Submitting..." : "Submit Application"}
+                        {joinMutation.isPending
+                          ? "Submitting..."
+                          : "Submit Application"}
                       </span>
                       <ChevronRightIcon className="w-4 h-4" />
                     </button>

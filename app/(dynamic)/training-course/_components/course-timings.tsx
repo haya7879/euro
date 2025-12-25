@@ -60,10 +60,6 @@ export default function CourseTimings({ course, timings }: CourseTimingsProps) {
     ...(enableCityFilter && { city: selectedCity || "" }),
   };
 
-  // if (citiesLoading) {
-  //   return <LoadingSpinner/>;
-  // }
-
   return (
     <div>
       <SearchSection

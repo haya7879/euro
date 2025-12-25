@@ -479,7 +479,7 @@ export default function RegisterPopup() {
                 <button
                   type="submit"
                   disabled={!recaptchaVerified || registerMutation.isPending || !isPhoneValid || !isResponsiblePhoneValid}
-                  className="submit-btn min-w-[170px] w-fit h-12 rounded-[10px] px-[18px] text-sm font-semibold text-white bg-gradient-to-r from-[#314EA9] to-[#446AE1] border-none cursor-pointer flex items-center justify-center gap-2 ml-0 transition-all duration-500 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed max-md:w-full max-md:min-w-auto max-md:h-11 max-md:text-[13px]"
+                  className="min-w-[170px] w-fit h-11 rounded-md px-2 text-sm font-semibold text-white bg-gradient-to-r from-[#314EA9] to-[#446AE1] border-none cursor-pointer flex items-center justify-center gap-2 ml-0 transition-all duration-500 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed max-md:w-full max-md:min-w-auto max-md:text-xs"
                 >
                   <span className="btn-text">{registerMutation.isPending ? 'Registering...' : 'Register'}</span>
                   {!registerMutation.isPending && <ChevronRightIcon className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-0.5" />}
