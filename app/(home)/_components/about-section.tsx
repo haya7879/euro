@@ -11,7 +11,7 @@ export default function AboutSection({ className = "" }: AboutSectionProps) {
     <section className={`bg-[#F2F8FF] md:py-14 py-12 ${className}`}>
       <Container>
         {/* Main Content Section */}
-        <div className="flex items-center justify-between lg:flex-row flex-col gap-8 lg:gap-10 mb-10">
+        <div className="flex items-center justify-between lg:flex-row flex-col gap-8 lg:gap-10 md:mb-15 mb-10">
           {/* Content Section - Right */}
           <div className="w-full lg:w-1/2 space-y-4">
             {/* Section Header */}
