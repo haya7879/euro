@@ -438,6 +438,7 @@ textarea {
 
 /* Hero Section Custom Animations */
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0px) translateX(0px) rotate(0deg);
@@ -592,6 +593,7 @@ textarea {
   font-size: 16px;
   max-width: none;
 }
+
 .overview-text p:last-child {
   margin-top: 30px !important;
 }
@@ -604,13 +606,17 @@ textarea {
 
 .overview-text p strong:only-child {
   display: block;
-  margin: 32px 0 0 0;
+  margin: 20px 0 0 0;
   font-size: 20px;
   color: #3E5EC0;
   padding-bottom: 0;
   border-bottom: none;
   position: relative;
   text-align: left;
+}
+
+.overview-text p:first-child strong:only-child {
+  margin-top: 16px !important;
 }
 
 .overview-text .unit-heading {
@@ -687,9 +693,11 @@ textarea {
     font-size: 16px !important;
     padding: 10px 12px !important;
   }
+
   .overview-text ul {
     padding-left: 2px;
   }
+
   .overview-text p,
   .overview-text strong {
     font-size: 14px;
