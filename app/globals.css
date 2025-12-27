@@ -438,7 +438,6 @@ textarea {
 
 /* Hero Section Custom Animations */
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0px) translateX(0px) rotate(0deg);
@@ -586,14 +585,13 @@ textarea {
   animation: fade-in-delay 1.5s ease-out 2.5s both;
 }
 
-/* Overview Text Styling */
+/*=============== Overview Content ============== */
 .overview-text {
   line-height: 1.8;
   color: #333;
   font-size: 16px;
   max-width: none;
 }
-
 .overview-text p:last-child {
   margin-top: 30px !important;
 }
@@ -604,7 +602,6 @@ textarea {
   font-size: 18px;
 }
 
-/* Main section headings (Course Benefits, Course Objectives, etc.) */
 .overview-text p strong:only-child {
   display: block;
   margin: 32px 0 0 0;
@@ -634,7 +631,6 @@ textarea {
   display: none !important;
 }
 
-/* Secondary headings - simpler styling for other headings */
 .overview-text .secondary-heading {
   font-size: 16px !important;
   margin: 20px 0 12px 0 !important;
@@ -648,7 +644,6 @@ textarea {
   display: none !important;
 }
 
-/* Enhanced styling for better visual hierarchy */
 .overview-text p strong:only-child {
   transition: all 0.3s ease;
   margin-bottom: 5px;
@@ -657,11 +652,6 @@ textarea {
 .overview-text .unit-heading:hover {
   background: #f0f4ff !important;
   transform: translateX(4px) !important;
-}
-
-/* Improve spacing and readability */
-.overview-text p {
-  line-height: 1.7;
 }
 
 .overview-text p strong:only-child+* {
@@ -677,25 +667,14 @@ textarea {
 }
 
 .overview-text ul {
-  margin: 14px 0;
-  padding-left: 12px;
+  padding-left: 10px;
 }
 
 .overview-text li {
   list-style: none;
   position: relative;
   padding-left: 24px;
-  line-height: 1.6;
-}
-
-.overview-text li:before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #10b981;
-  font-weight: bold;
-  font-size: 14px;
+  line-height: 1.8;
 }
 
 .overview-text li p {
@@ -703,73 +682,20 @@ textarea {
   display: inline;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
-  .overview-text {
-    font-size: 15px;
-  }
-
   .overview-text .unit-heading {
     font-size: 16px !important;
     padding: 10px 12px !important;
   }
-
-  .overview-text li {
-    padding-left: 20px;
+  .overview-text ul {
+    padding-left: 2px;
   }
-
   .overview-text p,
   .overview-text strong {
     font-size: 14px;
   }
 }
 
-/* Overview Content */
-.overview-content {
-  display: flex;
-  flex-direction: column;
-  color: #6f6f6f;
-}
-
-.overview-content ul {
-  color: #6f6f6f;
-  flex: 1;
-  list-style: disc !important;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  list-style-position: inside;
-  margin: 0 !important;
-}
-
-.overview-content ol {
-  list-style-position: inside;
-  padding-inline: 20px !important;
-}
-
-.overview-content h3 {
-  margin-block: 16px;
-}
-
-.overview-content h2 {
-  color: #3E5EC0;
-  font-size: 28px;
-}
-
-.overview-content .course-title {
-  font-weight: 700;
-  color: #134e88;
-  font-size: 28px;
-  line-height: 36px;
-}
-
-.overview-content .group-1 h2,
-.overview-content .group-1 h3,
-.overview-content .group-1 h4 {
-  font-weight: 700 !important;
-  color: #134e88 !important;
-}
 
 /* Social Share Section */
 .social-share-section {

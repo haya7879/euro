@@ -1,4 +1,5 @@
 import HeadingStyler from "./utils/heading-styler";
+import ListIconStyler from "./utils/list-icon-styler";
 import SocialShareButtons from "./social-share-buttons";
 
 interface CourseContentProps {
@@ -19,6 +20,7 @@ export default function CourseContent({ course }: CourseContentProps) {
             <div dangerouslySetInnerHTML={{ __html: course.content }} />
           )}
           <HeadingStyler content={course.content || ""} />
+          <ListIconStyler content={course.content || ""} />
         </div>
       </div>
 
