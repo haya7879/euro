@@ -59,11 +59,11 @@ export async function generateMetadata(): Promise<Metadata> {
     // Fallback metadata
     return {
       title:
-        "About Us - EuroQuest International | Professional Training Courses & Programs",
+        "About EuroQuest International | Global Training & Professional Development",
       description:
-        "Discover EuroQuest International, a leading training institute offering high-quality training courses and programs. Founded in 2015 with over 25 years of experience.",
+        "Discover EuroQuest International, a leading training institute with 25+ years of expertise, delivering 1000+ programs in leadership, HR, finance, oil & gas, AI, sustainability, and digital transformation across global cities.",
       keywords:
-        "about us, EuroQuest International, professional training courses, programs, training institute, management development, leadership training",
+        "about EuroQuest International, global training, professional development, leadership training, HR training, finance training, oil & gas training, AI training, sustainability training, digital transformation training",
     };
   }
 }
@@ -73,15 +73,15 @@ export default function AboutPage() {
     <>
       <Schema
         pageType="about"
-        pageTitle="About Us - EuroQuest International | Professional Training Courses & Programs"
-        pageDescription="Discover EuroQuest International, a leading training institute offering high-quality training courses and programs. Founded in 2015 with over 25 years of experience."
+        pageTitle="About EuroQuest International | Global Training & Professional Development"
+        pageDescription="Discover EuroQuest International, a leading training institute with 25+ years of expertise, delivering 1000+ programs in leadership, HR, finance, oil & gas, AI, sustainability, and digital transformation across global cities."
         pageUrl="https://euroqst.com/about"
       />
       {/* Hero Banner */}
       <HeroBanner
         backgroundImage="/assets/images/hero-about.webp"
-        title="About Us - EuroQuest International | Professional Training Courses & Programs" 
-        description="EuroQuest International was founded in 2015 by a team with over 25 years of experience, and has offered over 1000 training programs, benefiting over 15,000 participants across diverse industries in global centers including Dubai, London, Barcelona, Istanbul, Vienna, Paris, and Geneva."
+        title="About EuroQuest International" 
+        description="Founded in 2015 by a team with over 25 years of expertise, EuroQuest International has delivered more than 1000 training courses, benefiting over 15,000 participants across diverse sectors in global hubs including Dubai, London, Barcelona, Istanbul, Vienna, Paris, and Geneva."
         breadcrumbs={breadcrumbs}
         enableTypewriter={true}
       />
