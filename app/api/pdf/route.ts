@@ -79,14 +79,11 @@ export async function POST(request: NextRequest) {
         </div>
       `,
       footerTemplate: `
-<<<<<<< HEAD
         <div style="font-size: 9px; width: 100%; display: flex; justify-content: center; align-items: center; color: #6b7280; padding: 5px 7px; border-top: 1px solid #e5e7eb;">
-=======
-        <div style="font-size: 9px; width: 100%; display: flex; justify-content: space-between; align-items: center; color: #6b7280; padding: 5px 7px; border-top: 1px solid #e5e7eb;">
-          <span>EuroQuest International</span>
-          <span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>
->>>>>>> 61038dd4883310596ad10439a89641aaf8a2406a
-          <span>Šancová 3568/61 Mestská časť Nové Mesto Bratislava 831 04 Slovakia</span>
+          <span>Šancová 3568/61
+Mestská časť Nové Mesto
+Bratislava 831 04
+Slovakia</span>
         </div>
       `,
     });
@@ -482,69 +479,57 @@ function generateBrochureHTML(course: any, timing: any): string {
         margin-bottom: 12px;
       }
 
-      /* Overview Content Styling - Same as globals.css */
+      /*=============== Overview Content ============== */
       .overview-text {
         line-height: 1.8;
         color: #333;
         font-size: 16px;
         max-width: none;
       }
-
-      .overview-text p {
-        margin-bottom: 16px;
-      }
-
+      
       .overview-text p:last-child {
-        margin-bottom: 0;
+        padding-block: 30px !important;
       }
-
+      
       .overview-text strong {
         color: #2c3e50;
         font-weight: 600;
         font-size: 18px;
       }
-
-      /* Main section headings (Course Benefits, Course Objectives, etc.) */
+      
       .overview-text p strong:only-child {
         display: block;
-        margin: 32px 0 20px 0;
-        font-size: 22px;
-        color: #3e5ec0;
+        margin: 20px 0 0 0;
+        font-size: 20px;
+        color: #3E5EC0;
         padding-bottom: 0;
         border-bottom: none;
         position: relative;
         text-align: left;
       }
-
-      .overview-text p strong:only-child::after {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 60px;
-        height: 3px;
-        background: #20b486;
-        border-radius: 2px;
+      
+      .overview-text p:first-child strong:only-child {
+        margin-top: 16px !important;
       }
-
+      
       .overview-text .unit-heading {
-        font-size: 18px !important;
-        margin: 24px 0 12px 0 !important;
-        color: #3e5ec0 !important;
+        font-size: 15px !important;
+        margin-block: 14px !important;
+        background: #F2F8FF !important;
+        color: #2d3748 !important;
         padding: 12px 16px !important;
         border-radius: 0 8px 8px 0 !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
         -webkit-text-fill-color: #2d3748 !important;
         background-clip: unset !important;
         -webkit-background-clip: unset !important;
         position: relative;
-        width: fit-content;
       }
-
+      
       .overview-text .unit-heading::after {
         display: none !important;
       }
-
-      /* Secondary headings - simpler styling for other headings */
+      
       .overview-text .secondary-heading {
         font-size: 16px !important;
         margin: 20px 0 12px 0 !important;
@@ -553,89 +538,57 @@ function generateBrochureHTML(course: any, timing: any): string {
         display: inline !important;
         font-weight: 600 !important;
       }
-
+      
       .overview-text .secondary-heading::after {
         display: none !important;
       }
-
-      /* Enhanced styling for better visual hierarchy */
+      
       .overview-text p strong:only-child {
         transition: all 0.3s ease;
+        margin-bottom: 5px;
       }
-
-      /* Improve spacing and readability */
-      .overview-text p {
-        line-height: 1.7;
-      }
-
-      .overview-text p strong:only-child + * {
+      
+      .overview-text p strong:only-child+* {
         margin-top: 16px;
       }
-
-      .overview-text .unit-heading + * {
+      
+      .overview-text .unit-heading+* {
         margin-top: 12px;
       }
-
-      .overview-text .secondary-heading + * {
+      
+      .overview-text .secondary-heading+* {
         margin-top: 8px;
       }
-
+      
       .overview-text ul {
-        margin: 16px 0;
-        padding-left: 16px;
+        padding-left: 10px;
       }
-
+      
       .overview-text li {
         list-style: none;
         position: relative;
-        padding-left: 24px;
-        line-height: 1.6;
+        padding-left: 28px;
+        line-height: 1.8;
       }
-
-      .overview-text li:before {
-        content: "•";
+      
+      .overview-text li::before {
+        content: "";
         position: absolute;
         left: 0;
-        top: 0;
-        color: #3e5ec0;
-        font-weight: bold;
-        font-size: 18px;
+        top: 7px;
+        width: 15px;
+        height: 15px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
       }
-
+      
       .overview-text li p {
         margin: 0;
         display: inline;
       }
 
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .overview-text {
-          font-size: 15px;
-        }
-
-        .overview-text strong {
-          font-size: 17px;
-        }
-
-        .overview-text p strong:only-child {
-          font-size: 18px !important;
-          margin: 20px 0 12px 0 !important;
-        }
-
-        .overview-text .unit-heading {
-          font-size: 16px !important;
-          margin: 16px 0 8px 0 !important;
-          padding: 10px 12px !important;
-        }
-
-        .overview-text li {
-          padding-left: 20px;
-        }
-
-        .overview-text p strong:only-child::after {
-          width: 40px !important;
-        }
-      }
       .bullets {
         display: flex;
         flex-direction: column;
@@ -912,6 +865,54 @@ function generateBrochureHTML(course: any, timing: any): string {
   margin-top: 8px;
 }
 
+.registration-terms {
+  margin-top: 20px;
+  border-top: 2px solid #e5e7eb;
+  line-height: 1.8;
+  color: #333;
+  font-size: 16px;
+}
+
+.registration-terms p {
+  display: block;
+  margin-top: 26px;
+  margin-bottom:8px;
+  font-size: 18px !important;
+  font-weight:600 !important;
+  color: #2d3748;
+  padding-bottom: 0;
+  border-bottom: none;
+  position: relative;
+  text-align: left;
+}
+
+.registration-terms ul {
+  padding-left: 10px;
+}
+
+.registration-terms li {
+  list-style: none;
+  position: relative;
+  padding-left: 16px;
+  line-height: 1.8;
+  font-size:14px;
+}
+
+.registration-terms li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 16px;
+  height: 16px;
+  font-size:16px
+}
+
+.registration-terms li p {
+  margin: 0;
+  display: inline;
+}
+
     </style>
   </head>
   <body>
@@ -966,7 +967,7 @@ function generateBrochureHTML(course: any, timing: any): string {
            <div class="cover-detail-item">
              <span class="cover-detail-label">City</span>
              <span class="cover-detail-value">${
-               timing.city?.title || timing.city?.name || "Dubai"
+               timing.city?.title || timing.city?.name
              }</span>
                   </div>
            <div class="cover-detail-item">
@@ -995,6 +996,18 @@ function generateBrochureHTML(course: any, timing: any): string {
     <div class="brochure">
       <div class="main">
             <div class="section overview-text">${course.content || ""}</div>
+            
+            <div class="registration-terms">
+              <p>Registration Terms & Cancellation Policy</p>
+              <ul>
+                <li>Registration is valid only upon receipt of an official email from the relevant department of the participant's company or organization confirming nomination and approval. <b>Website registration alone is not considered confirmed.</b></li>
+                <li>Full course fees must be paid at least <b>30 days</b> before the course start date.</li>
+                <li>Cancellations made <b>15 days or more</b> prior to the course start date are subject to a <b>50% refund.</b></li>
+                <li>No refunds will be issued for cancellations made less than <b>15 days</b> prior to the course start date, non-attendance, or withdrawal after commencement.</li>
+                <li>The organizing body reserves the right to change the course venue <b>only in exceptional circumstances</b>, with prior notification to registered participants.</li>
+                <li>The organizing body may postpone or cancel the course due to insufficient enrolment, with full refund or transfer to a future course.</li>
+              </ul>
+            </div>
       </div>
     </div>
 
