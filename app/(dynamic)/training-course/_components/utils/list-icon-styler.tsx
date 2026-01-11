@@ -1,8 +1,7 @@
 "use client"
 import { useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { TbChecks } from "react-icons/tb";
-import { FiCheckCircle  } from "react-icons/fi";
+import { FaCheck } from "react-icons/fa6";
 
 interface ListIconStylerProps {
   content: string;
@@ -49,7 +48,7 @@ export default function ListIconStyler({ content }: ListIconStylerProps) {
         
         // Render React icon into the container
         const root = createRoot(iconContainer);
-        root.render(<TbChecks />);
+        root.render(<FaCheck />);
         roots.push({ root, container: iconContainer });
       });
     };
