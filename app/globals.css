@@ -689,6 +689,7 @@ textarea {
   position: relative;
   padding-left: 24px;
   line-height: 1.8;
+  margin-bottom: 3px;
 }
 
 .overview-text li p {
