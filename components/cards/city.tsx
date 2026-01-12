@@ -6,6 +6,7 @@ interface CityCardProps {
 }
 
 export default function CityCard({ city }: CityCardProps) {
+  console.log(city)
   return (
     <Link
       href={`/training-cities/${city.slug}`}

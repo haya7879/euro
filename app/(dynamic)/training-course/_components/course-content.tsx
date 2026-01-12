@@ -13,7 +13,7 @@ export default function CourseContent({ course }: CourseContentProps) {
   return (
     <section className="overview-section" id="overview-section">
       <div className="overview-content flex flex-col pt-[56px] text-[#6f6f6f]">
-        <h2 className="text-[#3E5EC0] md:text-[30px] text-[22px] font-bold">{course.title}</h2>
+        <h2 className="text-[#3E5EC0] md:text-[30px] text-[22px] font-bold text-center mb-2">{course.title}</h2>
 
         <div className="overview-text leading-[1.8] text-[#333] text-base max-w-none">
           {course.content && (
