@@ -14,7 +14,7 @@ export default function AdditionalDescription({
             {title}
           </h2>
           <div
-            className="text-[#4a5568] md:text-base  text-smleading-relaxed"
+            className="text-[#4a5568] md:text-base text-sm leading-relaxed add_desc"
             dangerouslySetInnerHTML={{
               __html: additional_description,
             }}
