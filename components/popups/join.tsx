@@ -301,14 +301,14 @@ export default function JoinPopup() {
 
                 <form
                   onSubmit={handleSubmit}
-                  className="form-inputs flex flex-col gap-4"
+                  className="flex flex-col gap-4"
                 >
-                  <div className="form-grid grid gap-2 md:grid-cols-2 max-md:grid-cols-1 max-md:gap-3">
+                  <div className="grid gap-x-2 gap-y-4 md:grid-cols-2 max-md:grid-cols-1">
                     {/* Full Name */}
-                    <div className="form-group flex flex-col gap-1">
+                    <div className="flex flex-col gap-1">
                       <label
                         htmlFor="join_full_name"
-                        className="text-[13px] text-[#333]"
+                        className="text-xs text-[#333]"
                       >
                         Full Name
                       </label>
@@ -321,7 +321,7 @@ export default function JoinPopup() {
                           handleInputChange("full_name", e.target.value)
                         }
                         className={cn(
-                          "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
+                          "text-sm placeholder:text-xs h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
                           errors.full_name && "border-red-500"
                         )}
                         required
@@ -334,10 +334,10 @@ export default function JoinPopup() {
                     </div>
 
                     {/* Email */}
-                    <div className="form-group flex flex-col gap-1">
+                    <div className="flex flex-col gap-1">
                       <label
                         htmlFor="join_email"
-                        className="text-[13px] text-[#333]"
+                        className="text-xs text-[#333]"
                       >
                         Email
                       </label>
@@ -350,7 +350,7 @@ export default function JoinPopup() {
                           handleInputChange("email", e.target.value)
                         }
                         className={cn(
-                          "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
+                          "text-sm placeholder:text-xs h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
                           errors.email && "border-red-500"
                         )}
                         required
@@ -363,12 +363,12 @@ export default function JoinPopup() {
                     </div>
                   </div>
 
-                  <div className="form-grid grid gap-2 md:grid-cols-2 max-md:grid-cols-1 max-md:gap-3">
+                  <div className=" grid gap-2 md:grid-cols-2 max-md:grid-cols-1 max-md:gap-3">
                     {/* Speciality */}
-                    <div className="form-group flex flex-col gap-1">
+                    <div className="flex flex-col gap-1">
                       <label
                         htmlFor="join_speciality"
-                        className="text-[13px] text-[#333]"
+                        className="text-xs text-[#333]"
                       >
                         Speciality
                       </label>
@@ -381,7 +381,7 @@ export default function JoinPopup() {
                           handleInputChange("speciality", e.target.value)
                         }
                         className={cn(
-                          "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
+                          "text-sm placeholder:text-xs h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
                           errors.speciality && "border-red-500"
                         )}
                         required
@@ -394,10 +394,10 @@ export default function JoinPopup() {
                     </div>
 
                     {/* Country */}
-                    <div className="form-group flex flex-col gap-1">
+                    <div className="flex flex-col gap-1">
                       <label
                         htmlFor="join_country"
-                        className="text-[13px] text-[#333]"
+                        className="text-xs text-[#333]"
                       >
                         Country
                       </label>
@@ -410,7 +410,7 @@ export default function JoinPopup() {
                           handleInputChange("country", e.target.value)
                         }
                         className={cn(
-                          "h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
+                          "text-sm placeholder:text-xs h-11 w-full px-4 border border-[#e2e8f0] rounded-xl outline-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3",
                           errors.country && "border-red-500"
                         )}
                         required
@@ -422,9 +422,9 @@ export default function JoinPopup() {
                       )}
                     </div>
                   </div>
-                  <div className="form-grid grid gap-2 md:grid-cols-2 max-md:grid-cols-1 max-md:gap-3">
+                  <div className=" grid gap-2 md:grid-cols-2 max-md:grid-cols-1 max-md:gap-3">
                     {/* Phone Number */}
-                    <div className="form-group flex flex-col gap-1">
+                    <div className="flex flex-col gap-1">
                       <PhoneInput
                         label="Phone Number"
                         name="join_phone"
@@ -440,10 +440,10 @@ export default function JoinPopup() {
                     </div>
 
                     {/* File Upload */}
-                    <div className="file-input-wrapper form-group flex flex-col gap-1">
+                    <div className="file-input-wrapper flex flex-col gap-1">
                       <label
                         htmlFor="join_cv"
-                        className="text-[13px] text-[#333]"
+                        className="text-xs text-[#333]"
                       >
                         Upload CV
                       </label>
@@ -462,7 +462,7 @@ export default function JoinPopup() {
                           document.getElementById("join_cv")?.click()
                         }
                         className={cn(
-                          "file-input-btn w-full h-11 px-4 cursor-pointer border border-[#e2e8f0] rounded-xl flex items-center gap-2 text-[13px] transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3 text-[#333]",
+                          "file-input-btn w-full h-11 px-4 cursor-pointer border border-[#e2e8f0] rounded-xl flex items-center gap-2 text-xs transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:h-10 max-md:px-3 text-[#333]",
                           errors.cv && "border-red-500"
                         )}
                       >
@@ -477,10 +477,10 @@ export default function JoinPopup() {
                     </div>
                   </div>
                   {/* Message */}
-                  <div className="message-group form-group flex flex-col gap-1">
+                  <div className="message-group flex flex-col gap-1">
                     <label
                       htmlFor="join_message"
-                      className="text-[13px] text-[#333]"
+                      className="text-xs text-[#333]"
                     >
                       Message
                     </label>
@@ -492,7 +492,7 @@ export default function JoinPopup() {
                         handleInputChange("message", e.target.value)
                       }
                       className={cn(
-                        "w-full min-h-[120px] px-4 py-3 border border-[#e2e8f0] rounded-xl outline-none resize-none text-sm transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:min-h-[100px] max-md:px-3 max-md:py-2",
+                        "w-full min-h-[120px] text-sm placeholder:text-xs px-4 py-3 border border-[#e2e8f0] rounded-xl outline-none resize-none transition-all duration-300 hover:border-[#314EA9] focus:outline-none focus:border-[#667eea] focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1),0_4px_12px_rgba(102,126,234,0.15)] focus:-translate-y-0.5 max-md:min-h-[100px] max-md:px-3 max-md:py-2",
                         errors.message && "border-red-500"
                       )}
                       required

@@ -428,7 +428,7 @@ export default function PhoneInput({
   return (
     <div className="w-full">
       {label && (
-        <label htmlFor={id} className="block text-[13px] text-[#333] mb-1">
+        <label htmlFor={id} className="block text-xs text-[#333] mb-1">
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
@@ -529,7 +529,7 @@ export default function PhoneInput({
             type="tel"
             id={id}
             name={name}
-            className="phone-number-input flex-1 border-none outline-none px-4 py-3 text-sm bg-transparent rounded-r-xl max-md:px-3 max-md:text-[13px] disabled:cursor-not-allowed"
+            className="phone-number-input flex-1 border-none outline-none px-4 py-3 text-sm placeholder:text-xs bg-transparent rounded-r-xl max-md:px-3 max-md:text-[13px] disabled:cursor-not-allowed"
             placeholder={placeholder}
             value={phoneInput}
             onChange={handlePhoneInputChange}
