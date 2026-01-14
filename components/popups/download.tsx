@@ -26,16 +26,6 @@ interface DownloadFormData {
 export default function DownloadPopup() {
   const { isDownloadOpen, downloadData, closeDownload } = usePopupStore();
   const { showSuccessAlert, showErrorAlert } = useAlert();
-
-  // Format date function
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  };
   const { course, timing, courseTitle = "", timingId = "" } = downloadData;
   const [formData, setFormData] = useState<DownloadFormData>({
     fullName: "",
@@ -288,14 +278,6 @@ export default function DownloadPopup() {
 
   return (
     <>
-      {/* Success Message */}
-      <SuccessMessage
-        isVisible={showSuccessMessage}
-        onClose={() => setShowSuccessMessage(false)}
-        message="Brochure downloaded successfully!"
-        fileName={downloadedFileName}
-      />
-
       <div
         className="fixed top-0 left-0 z-[100] inset-0 bg-black/70 flex items-center justify-center p-4 overflow-y-auto md:p-4 max-md:pt-8 max-md:p-2"
         onClick={handleOverlayClick}

@@ -73,7 +73,28 @@ export default function SearchTimingCard({
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
+            // Convert SearchTiming to Course and Timing structure
+            const course: Course = {
+              id: 0,
+              slug: timing.course_slug,
+              title: timing.course_title,
+              code: "",
+            };
+            const timingData: Timing = {
+              id: timing.id,
+              start_date: timing.start_date,
+              end_date: timing.end_date,
+              fees: Number(timing.fees),
+              city: {
+                id: 0,
+                slug: timing.city_slug || "",
+                title: timing.city_title,
+                image: "",
+              },
+            };
             openDownload({
+              course,
+              timing: timingData,
               courseTitle: timing.course_title,
               timingId: timing.id.toString(),
             });
