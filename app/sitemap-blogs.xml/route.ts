@@ -20,12 +20,11 @@ export async function GET() {
     // Extract all blogs from grouped structure
     if (data.blogs) {
       Object.values(data.blogs).forEach((group: any) => {
-        if (group.data && Array.isArray(group.data)) {
-          allBlogs.push(...group.data);
+        if (group && Array.isArray(group)) {
+          allBlogs.push(...group);
         }
       });
     }
-
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allBlogs
