@@ -6,26 +6,40 @@ export async function GET() {
   const apiUrl = API_URL;
 
   try {
-    // Fetch blogs from API
     const response = await fetch(`${apiUrl}/blogs`, {
-      next: { revalidate: 3600 }, // Revalidate every hour
+      next: { revalidate: 3600 },
     });
-    const blogs = await response.json();
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const allBlogs: any[] = [];
+
+    // Extract all blogs from grouped structure
+    if (data.blogs) {
+      Object.values(data.blogs).forEach((group: any) => {
+        if (group.data && Array.isArray(group.data)) {
+          allBlogs.push(...group.data);
+        }
+      });
+    }
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${
-  blogs.data
-    ?.map(
-      (blog: any) => `    <url>
+${allBlogs
+  .map(
+    (blog: any) => `    <url>
         <loc>${baseUrl}/blog/${blog.slug}</loc>
-        <lastmod>${new Date(blog.updated_at).toISOString()}</lastmod>
+        <lastmod>${new Date(
+          blog.updated_at || Date.now()
+        ).toISOString()}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>`
-    )
-    .join("\n") || ""
-}
+  )
+  .join("\n")}
 </urlset>`;
 
     return new NextResponse(sitemap, {

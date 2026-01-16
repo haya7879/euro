@@ -8,13 +8,25 @@ export async function GET() {
   try {
     // Fetch cities and categories
     const [citiesRes, categoriesRes] = await Promise.all([
-      fetch(`${apiUrl}/cities`, {
+      fetch(`${apiUrl}/training-cities`, {
         next: { revalidate: 86400 },
       }),
-      fetch(`${apiUrl}/categories`, {
+      fetch(`${apiUrl}/training-courses`, {
         next: { revalidate: 86400 },
       }),
     ]);
+
+    if (!citiesRes.ok) {
+      throw new Error(
+        `HTTP error fetching cities! status: ${citiesRes.status}`
+      );
+    }
+
+    if (!categoriesRes.ok) {
+      throw new Error(
+        `HTTP error fetching categories! status: ${categoriesRes.status}`
+      );
+    }
 
     const cities = await citiesRes.json();
     const categories = await categoriesRes.json();
@@ -22,10 +34,10 @@ export async function GET() {
     // Generate all city + category combinations
     const urls: string[] = [];
 
-    cities.data?.forEach((city: any) => {
-      categories.data?.forEach((category: any) => {
+    cities?.forEach((city: any) => {
+      categories?.forEach((category: any) => {
         urls.push(`    <url>
-        <loc>${baseUrl}/training-courses/${city.slug}/${category.slug}</loc>
+        <loc>${baseUrl}/training-cities/${city.slug}/${category.slug}</loc>
         <lastmod>${new Date().toISOString()}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
@@ -35,8 +47,6 @@ export async function GET() {
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!--  City + Category SEO pages  -->
-${urls.join("\n")}
 </urlset>`;
 
     return new NextResponse(sitemap, {
@@ -50,7 +60,10 @@ ${urls.join("\n")}
     return new NextResponse(
       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>',
       {
-        headers: { "Content-Type": "application/xml" },
+        headers: {
+          "Content-Type": "application/xml",
+          "Cache-Control": "public, max-age=86400, s-maxage=86400",
+        },
       }
     );
   }

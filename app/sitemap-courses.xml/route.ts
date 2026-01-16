@@ -6,23 +6,56 @@ export async function GET() {
   const apiUrl = API_URL;
 
   try {
-    // Fetch courses from API
-    const response = await fetch(`${apiUrl}/courses?limit=1000`, {
-      next: { revalidate: 3600 }, // Revalidate every hour
+    // Step 1: Fetch all categories
+    const categoriesResponse = await fetch(`${apiUrl}/training-courses`, {
+      next: { revalidate: 3600 },
     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+    if (!categoriesResponse.ok) {
+      throw new Error(`HTTP error! status: ${categoriesResponse.status}`);
     }
 
-    const courses = await response.json();
+    const categories = await categoriesResponse.json();
+    const coursesMap = new Map();
 
+    // Step 2: Fetch details for each category to get courses
+    const categoryDetailsPromises = categories?.map(async (category: any) => {
+      try {
+        const categoryDetailResponse = await fetch(
+          `${apiUrl}/training-courses/${category.slug}`,
+          {
+            next: { revalidate: 3600 },
+          }
+        );
+
+        if (categoryDetailResponse.ok) {
+          const categoryDetail = await categoryDetailResponse.json();
+          return categoryDetail;
+        }
+        return null;
+      } catch (error) {
+        console.error(`Error fetching category ${category.slug}:`, error);
+        return null;
+      }
+    });
+
+    const categoryDetails = await Promise.all(categoryDetailsPromises || []);
+
+    // Step 3: Extract unique courses from all category details
+    categoryDetails?.forEach((detail: any) => {
+      if (detail && detail.courses) {
+        detail.courses.forEach((course: any) => {
+          if (!coursesMap.has(course.slug)) {
+            coursesMap.set(course.slug, course);
+          }
+        });
+      }
+    });
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${
-  courses.data
-    ?.map(
-      (course: any) => `    <url>
+${Array.from(coursesMap.values())
+  .map(
+    (course: any) => `    <url>
         <loc>${baseUrl}/training-course/${course.slug}</loc>
         <lastmod>${new Date(
           course.updated_at || Date.now()
@@ -30,9 +63,8 @@ ${
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>`
-    )
-    .join("\n") || ""
-}
+  )
+  .join("\n")}
 </urlset>`;
 
     return new NextResponse(sitemap, {

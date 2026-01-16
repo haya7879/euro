@@ -7,7 +7,7 @@ export async function GET() {
 
   try {
     // Fetch cities from API
-    const response = await fetch(`${apiUrl}/cities`, {
+    const response = await fetch(`${apiUrl}/training-cities`, {
       next: { revalidate: 86400 }, // Revalidate every 24 hours
     });
 
@@ -20,7 +20,7 @@ export async function GET() {
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${
-  cities.data
+  cities
     ?.map(
       (city: any) => `    <url>
         <loc>${baseUrl}/training-cities/${city.slug}</loc>
